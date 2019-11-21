@@ -21,7 +21,7 @@ EXPORTS
 
    //导出函数名不发生变化
 ```
-## 2-导出函数 [__declspec(dllexport)]
+## 2-导出函数 _declspec(dllexport)
 ```cpp
 __declspec(dllexport) void __cdecl Function1(void);
 //调用约定__stdcall,__cdecl可在项目属性设置
