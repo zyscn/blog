@@ -1,8 +1,9 @@
 ---
 
 title: "Termux 高级终端安装使用配置教程"
-date: 2019-03-18
-lastmod: 2019-03-18
+date: 2019-03-18T12:00:00
+lastmod: 2019-03-18T12:00:00
+timezone: UTC+8
 draft: false
 tags: ["Termux", "编程"]
 categories: ["Termux"]

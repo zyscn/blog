@@ -1,8 +1,9 @@
 ---
 
 title: "JavaScript字符串String提取方法比较"
-date: 2019-03-17
-lastmod: 2019-03-17
+date: 2019-03-17T12:00:00
+lastmod: 2019-03-17T12:00:00
+timezone: UTC+8
 draft: false
 tags: ["JavaScript", "编程"]
 categories: ["JavaScript"]

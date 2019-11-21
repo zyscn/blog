@@ -1,8 +1,9 @@
 ---
 
 title: "windows开启SSH服务器"
-date: 2019-11-13
-lastmod: 2019-11-13
+date: 2019-11-13T12:00:00
+lastmod: 2019-11-13T12:00:00
+timezone: UTC+8
 draft: false
 tags: ["windows", "ssh"]
 categories: ["ssh"]

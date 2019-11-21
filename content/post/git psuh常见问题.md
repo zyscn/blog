@@ -1,8 +1,9 @@
 ---
 
 title: "git push常见问题"
-date: 2019-10-08
-lastmod: 2019-10-08
+date: 2019-10-08T12:00:00
+lastmod: 2019-10-08T12:00:00
+timezone: UTC+8
 draft: false
 tags: ["git", "error"]
 categories: ["git"]

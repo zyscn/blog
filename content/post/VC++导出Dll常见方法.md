@@ -1,8 +1,9 @@
 ---
 
 title: "VC++导出Dll常见方法"
-date: 2019-11-08
-lastmod: 2019-11-08
+date: 2019-11-08T12:00:00
+lastmod: 2019-11-08T12:00:00
+timezone: UTC+8
 draft: false
 tags: ["c++", "dll"]
 categories: ["C++"]
