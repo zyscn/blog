@@ -21,7 +21,7 @@ author: "zyscn"
 ## 国内原因换源
 ### rustup源
 -  linux
-    ```sh
+    ```
     $ # for bash
     $ echo 'export RUSTUP_DIST_SERVER=https://mirrors.tuna.tsinghua.edu.cn/rustup' >> ~/.bash_profile
 
@@ -41,7 +41,7 @@ author: "zyscn"
 ### cargo源
 
 - windows
-    ```sh
+    ```
     # 新建 %USERPROFILE%\.cargo\config 
     [source.crates-io]
     replace-with = "rustcc"
@@ -50,7 +50,7 @@ author: "zyscn"
     registry = "https://code.aliyun.com/rustcc/crates.io-index"
     ```
 - linux
-    ```sh
+    ```
     tee $HOME/.cargo/config <<-'EOF'
     [source.crates-io]
     replace-with = "rustcc"
@@ -67,7 +67,7 @@ author: "zyscn"
 
 - 配置launch.json调试文件如下：
 
-    ```json
+    ```
 
         {
         "version": "0.2.0",
