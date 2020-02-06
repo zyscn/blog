@@ -16,9 +16,11 @@ function buildPostCodeCopyBtns() {
     }
 
     $.each($pres, function (index, pre) {
+      
       if(index%2!=0){
-        $(pre).find('code').attr('id', "copy_target_".concat(index));
-        $(pre).prepend("<div class=\"esa-clipboard-button\" data-clipboard-target=\"#copy_target_".concat(index, "\" title=\"\u590D\u5236\u4EE3\u7801\">复制</div>"));
+        $(pre).attr('id', "copy_target_".concat(index-1));
+      }else{
+        $(pre).before("<div class=\"esa-clipboard-button\" data-clipboard-target=\"#copy_target_".concat(index, "\" title=\"\u590D\u5236\u4EE3\u7801\">复制</div>"));
       }
     });
 

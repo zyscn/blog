@@ -18,7 +18,7 @@ author: "zyscn"
 > cargo new addlib -lib
 
 ### 编辑lib.rs
-```
+```rust
     //添加一个标记 #[no_mangle]，防止编译器在编译的时候，重命名函数。
     
     #[no_mangle]

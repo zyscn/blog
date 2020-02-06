@@ -3,12 +3,20 @@
    cursor: pointer;
    position: absolute;
    right: 6px;
-   top: 2px;
-   box-shadow: 0 0 5px 0 rgba(0, 0, 0, .1);
-   color: #5e6687;
+   border:1px dashed #cacaca;
+   box-shadow: 0 0 5px 0 rgba(0, 0, 0, .2);
+   color: #93a1a1;
    padding: 0px 6px;
    z-index: 99999999;
+   font-size: 13px;
 }
+
+.esa-clipboard-button:hover {
+   color: rgb(46, 40, 40);
+   border:1px solid #cacaca;
+   box-shadow: 0 0 5px 0 rgba(0, 0, 0, .5);
+}
+
 pre {
         position: relative;
 }
