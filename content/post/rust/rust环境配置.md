@@ -24,6 +24,7 @@ author: "zyscn"
     ```sh
     $ # for bash
     $ echo 'export RUSTUP_DIST_SERVER=https://mirrors.tuna.tsinghua.edu.cn/rustup' >> ~/.bash_profile
+
     ```
 - windows
 
@@ -61,12 +62,13 @@ author: "zyscn"
 
 ## 配置ide
 
-    - 安装vscode后，安装rust(rls)插件,用cargo new hello_cargo新建工程文件，打开工程按照提示安装rls等工具。
-    - 调试环境，windows安装C/C++插件，linux安装codelldb插件
+- 安装vscode后，安装rust(rls)插件,用cargo new hello_cargo新建工程文件，打开工程按照提示安装rls等工具。
+- 调试环境，windows安装C/C++插件，linux安装codelldb插件
 
-    - 配置launch.json调试文件如下：
+- 配置launch.json调试文件如下：
 
     ```json
+
         {
         "version": "0.2.0",
         "configurations": [
@@ -86,7 +88,8 @@ author: "zyscn"
                 }
             ]
         }
-```
+
+    ```
 
 
 [rust中文文档](https://kaisery.github.io/trpl-zh-cn/ch01-03-hello-cargo.html)
