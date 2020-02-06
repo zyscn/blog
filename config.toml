@@ -10,7 +10,7 @@ enableGitInfo = false # use git commit log to generate lastmod record # 可根�
 
 # Syntax highlighting by Chroma. NOTE: Don't enable `highlightInClient` and `chroma` at the same time!
 pygmentsOptions = "linenos=table"
-pygmentsStyle = "dracula"
+pygmentsStyle = "monokai"
 pygmentsCodefences = true
 pygmentsUseClasses = true
 pygmentsCodefencesGuessSyntax = true
