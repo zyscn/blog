@@ -61,6 +61,32 @@ author: "zyscn"
 
 ## 配置ide
 
-    安装vscode后，安装rust(rls)插件,用cargo new hello_cargo新建工程文件，打开工程按照提示安装rls等工具。
+    - 安装vscode后，安装rust(rls)插件,用cargo new hello_cargo新建工程文件，打开工程按照提示安装rls等工具。
+    - 调试环境，windows安装C/C++插件，linux安装codelldb插件
+
+    - 配置launch.json调试文件如下：
+
+    ```json
+        {
+        "version": "0.2.0",
+        "configurations": [
+                "name": "Debug",
+                "type": "cppvsdbg",
+                "request": "launch",
+                //调试程序位置
+                "program": "${workspaceFolder}/target/debug/YOUR_EXECUTABLE.exe",
+                "args": [],
+                "stopAtEntry": false,
+                "externalConsole": false,
+                "preLaunchTask": "cargo build",
+                "type": "cppvsdbg",
+                // rust源码文件
+                "sourceFileMap": {
+                    "/rustc/4560ea788cb760f0a34127156c78e2552949f734": "${env:HOME}${env:USERPROFILE}\\.rustup\\toolchains\\stable-x86_64-pc-windows-msvc\\lib\\rustlib\\src\\rust"
+                }
+            ]
+        }
+```
+
 
 [rust中文文档](https://kaisery.github.io/trpl-zh-cn/ch01-03-hello-cargo.html)
