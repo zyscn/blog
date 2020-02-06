@@ -1,8 +1,8 @@
 ---
 
 title: "rust环境配置"
-date: 2020-02-06T10:00:00
-lastmod: 2020-02-06T10:00:00
+date: 2020-02-01T10:00:00
+lastmod: 2020-02-01T10:00:00
 timezone: UTC+8
 draft: false
 tags: ["rust", "编程"]
