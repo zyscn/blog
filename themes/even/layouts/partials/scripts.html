@@ -1,5 +1,7 @@
 <!-- highlight.js -->
 {{- if .Site.Params.highlightInClient -}}
+  {{ .Site.Params.publicCDN.highlight | safeHTML }}
+{{- else -}}
   <script src="{{ "lib/highlight/highlight.pack.js?v=20171001" | relURL }}"></script>
 {{- end -}}
 <!-- highlight.js -->

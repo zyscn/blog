@@ -24,8 +24,8 @@ PowerShell 管理员运行：
 
 - 启动 SSH 服务`net start sshd`
 
-```PowerShell
-    net start sshd
+```powershell
+net start sshd
 ```
 - 启动成功显示：
 `OpenSSH SSH Server 服务正在启动 .`
@@ -33,8 +33,8 @@ PowerShell 管理员运行：
 
 - 停止 SSH 服务`net stop sshd`
 
-```PowerShell
-    net stop sshd
+```powershell
+net stop sshd
 ```
 `OpenSSH SSH Server 服务已成功停止。`
 
@@ -42,7 +42,7 @@ PowerShell 管理员运行：
 
 - PowerShell 管理员运行：
 
-```PowerShell
+```powershell
 New-ItemProperty -Path "HKLM:\SOFTWARE\OpenSSH" -Name DefaultShell -Value "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" -PropertyType String -Force
 ```
 
