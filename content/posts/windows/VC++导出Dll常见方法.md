@@ -30,15 +30,12 @@ int __stdcall Add(int a, int b) {
 }
 //__stdcall可不写,但是要在项目中设置
 ```
-# 导出方式有两种
-## 1-模块定义(.def) 文件声明
+# 导出Add.dll方式有两种
+## 1-模块定义(.def) 文件声明,函数名不变化
 ```def
-//add.def
-LIBRARY   ADD
+LIBRARY   Add
 EXPORTS
    Add   @1
-
-//导出函数名不发生变化
 ```
 ## 2-导出函数 _declspec(dllexport)
 
