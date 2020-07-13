@@ -78,7 +78,7 @@ theme = "LoveIt"
   [params.search]
     enable = true
     # 搜索引擎的类型 ("lunr", "algolia")
-    type = "lunr"
+    type = "algolia"
     # 文章内容最长索引长度
     contentLength = 4000
     # 搜索框的占位提示语
@@ -92,9 +92,9 @@ theme = "LoveIt"
     #  是否在搜索索引中使用基于 baseURL 的绝对路径
     absoluteURL = false
     [params.search.algolia]
-      index = ""
-      appID = ""
-      searchKey = ""
+      index = "beancake"
+      appID = "EV52XFAC18"
+      searchKey = "0ee76b062faa40c32063a4f7c0911352"
 
   # 页面头部导航栏配置
   [params.header]
