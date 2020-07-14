@@ -26,5 +26,5 @@ dm=client.CreateObject("dm.dmsoft")
 print(dm.ver())
 dm.MoveTO(10,10)
 ```
-[需要的附件](!https://mega.lanzous.com/iFkDAelptti)
+[附件](https://mega.lanzous.com/iFkDAelptti)
 
