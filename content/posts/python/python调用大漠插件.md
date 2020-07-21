@@ -20,7 +20,7 @@ from ctypes import windll
 from comtypes import client
 
 #加载init.dll
-Reg = windll.LoadLibrary("D:\dm\init.dll")
+Reg = windll.LoadLibrary("./init.dll")
 Reg.init()
 dm=client.CreateObject("dm.dmsoft")
 print(dm.ver())
