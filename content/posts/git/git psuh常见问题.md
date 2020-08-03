@@ -7,7 +7,7 @@ timezone: UTC+8
 draft: false
 tags: ["git", "error"]
 categories: ["git"]
-author: "zyscn"
+author: "zys"
 
 ---
 
