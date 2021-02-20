@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>python - 分类 - 思考随笔</title>
+        <link>https://blog.beancake.cn/categories/python/</link>
+        <description>python - 分类 - 思考随笔</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>18370203@qq.com (zyscn)</managingEditor>
+            <webMaster>18370203@qq.com (zyscn)</webMaster><lastBuildDate>Mon, 03 Feb 2020 12:00:00 &#43;0000</lastBuildDate><atom:link href="https://blog.beancake.cn/categories/python/" rel="self" type="application/rss+xml" /><item>
+    <title>python调用大漠插件</title>
+    <link>https://blog.beancake.cn/python%E8%B0%83%E7%94%A8%E5%A4%A7%E6%BC%A0%E6%8F%92%E4%BB%B6/</link>
+    <pubDate>Mon, 03 Feb 2020 12:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://blog.beancake.cn/python%E8%B0%83%E7%94%A8%E5%A4%A7%E6%BC%A0%E6%8F%92%E4%BB%B6/</guid>
+    <description><![CDATA[利用init破解权限和免注册com 1 2 3 4 5 6 7 8 9 10 #coding=utf-8 from ctypes import windll from comtypes import client #加载init.dll Reg = windll.LoadLibrary(&#34;./init.dll&#34;) Reg.init() dm=client.CreateObject(&#34;dm.dmsoft&#34;) print(dm.ver()) dm.MoveTO(10,10) 附件]]></description>
+</item></channel>
+</rss>

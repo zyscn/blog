@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>VC&#43;&#43;导出Dll常见方法 - 思考随笔</title><meta name="Description" content="zys的个人分享哲学，数学，编程知识的博客"><meta property="og:title" content="VC&#43;&#43;导出Dll常见方法" />
+<meta property="og:description" content="调用约定 _stdcall,_cdecl _stdcall调用 按C编译方式，_stdcall调用约定在输出函数名前面加下划线，后面加“@”符号和参数的字节数，形如_func" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.beancake.cn/vc-%E5%AF%BC%E5%87%BAdll%E5%B8%B8%E8%A7%81%E6%96%B9%E6%B3%95/" />
+<meta property="og:image" content="https://blog.beancake.cn/logo.png"/>
+<meta property="article:published_time" content="2019-11-08T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-11-08T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://blog.beancake.cn/logo.png"/>
+
+<meta name="twitter:title" content="VC&#43;&#43;导出Dll常见方法"/>
+<meta name="twitter:description" content="调用约定 _stdcall,_cdecl _stdcall调用 按C编译方式，_stdcall调用约定在输出函数名前面加下划线，后面加“@”符号和参数的字节数，形如_func"/>
+<meta name="application-name" content="思考随笔">
+<meta name="apple-mobile-web-app-title" content="思考随笔"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.beancake.cn/vc-%E5%AF%BC%E5%87%BAdll%E5%B8%B8%E8%A7%81%E6%96%B9%E6%B3%95/" /><link rel="prev" href="https://blog.beancake.cn/git-psuh%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" /><link rel="next" href="https://blog.beancake.cn/windows%E5%BC%80%E5%90%AFssh%E6%9C%8D%E5%8A%A1%E5%99%A8/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "VC++导出Dll常见方法",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.beancake.cn\/vc-%E5%AF%BC%E5%87%BAdll%E5%B8%B8%E8%A7%81%E6%96%B9%E6%B3%95\/"
+        },"genre": "posts","keywords": "c\u002b\u002b, dll","wordcount":  576 ,
+        "url": "https:\/\/blog.beancake.cn\/vc-%E5%AF%BC%E5%87%BAdll%E5%B8%B8%E8%A7%81%E6%96%B9%E6%B3%95\/","datePublished": "2019-11-08T00:00:00+00:00","dateModified": "2019-11-08T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "zys"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="思考随笔">思考随笔</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="思考随笔">思考随笔</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">VC&#43;&#43;导出Dll常见方法</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>zys</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/c++/"><i class="far fa-folder fa-fw"></i>C++</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2019-11-08">2019-11-08</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 576 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/vc-%E5%AF%BC%E5%87%BAdll%E5%B8%B8%E8%A7%81%E6%96%B9%E6%B3%95/" class="leancloud_visitors" data-flag-title="VC&#43;&#43;导出Dll常见方法">
+                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-模块定义def-文件声明函数名不变化">1-模块定义(.def) 文件声明,函数名不变化</a></li>
+    <li><a href="#2-导出函数-_declspecdllexport">2-导出函数 _declspec(dllexport)</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="调用约定-_stdcall_cdecl">调用约定 _stdcall,_cdecl</h1>
+<ol>
+<li>
+<p>_stdcall调用</p>
+<ul>
+<li>按C编译方式，_stdcall调用约定在输出函数名前面加下划线，后面加“@”符号和参数的字节数，形如_func@12</li>
+</ul>
+</li>
+<li>
+<p>_cdecl调用</p>
+<ul>
+<li>_cdecl是C/C++的缺省调用方式，参数采用从右到左的压栈方式，由调用者完成压栈操作 ，传送参数的内存栈由调用者维护。
+_cedcl约定的函数只能被C/C++调用，每一个调用它的函数都包含清空堆栈的代码，所以产生的可执行文件大小会比调用_stdcall函数的大。
+按C编译方式，_cdecl调用约定仅在输出函数名前面加下划线，形如_functionname。</li>
+</ul>
+</li>
+<li>
+<p>区别</p>
+<ul>
+<li>在跨（开发） 平台的调用中，我们都使用_stdcall（虽然有时是以WINAPI的样子出现）。当遇到这样的函数如 fprintf()它的参数是可变的，不定长的，被调用者事先无法知道参数的长度，事后的清除工作也无法正常的进行，因此，这种情况我们只能使用 _cdecl。如果你的程序中没有涉及可变参数，最好使用__stdcall关键字。</li>
+</ul>
+</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="c1">//add.cpp
+</span><span class="c1"></span><span class="kt">int</span> <span class="kr">__stdcall</span> <span class="nf">Add</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">//__stdcall可不写,但是要在项目中设置
+</span></code></pre></td></tr></table>
+</div>
+</div><h1 id="导出adddll方式有两种">导出Add.dll方式有两种</h1>
+<h2 id="1-模块定义def-文件声明函数名不变化">1-模块定义(.def) 文件声明,函数名不变化</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-def" data-lang="def"><span class="n">LIBRARY</span>   <span class="n">Add</span>
+<span class="n">EXPORTS</span>
+   <span class="n">Add</span>   <span class="o">@</span><span class="mi">1</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="2-导出函数-_declspecdllexport">2-导出函数 _declspec(dllexport)</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-h" data-lang="h"><span class="c1">//add.h头文件
+</span><span class="c1"></span><span class="cp">#ifndef ADD_H
+</span><span class="cp">#define ADD_H
+</span><span class="cp">#ifdef __cplusplus         </span><span class="c1">// if used by C++ code
+</span><span class="c1"></span><span class="k">extern</span> <span class="s">&#34;C&#34;</span> <span class="p">{</span>                  <span class="c1">// we need to export the C interface
+</span><span class="c1"></span><span class="cp">#endif
+</span><span class="cp"></span>
+	<span class="kr">__declspec</span><span class="p">(</span><span class="n">dllexport</span><span class="p">)</span> <span class="kt">int</span>  <span class="n">Add</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">);</span>
+
+<span class="cp">#ifdef __cplusplus
+</span><span class="cp"></span><span class="p">}</span>
+<span class="cp">#endif
+</span><span class="cp">#endif
+</span></code></pre></td></tr></table>
+</div>
+</div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2019-11-08</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.beancake.cn/vc-%E5%AF%BC%E5%87%BAdll%E5%B8%B8%E8%A7%81%E6%96%B9%E6%B3%95/" data-title="VC&#43;&#43;导出Dll常见方法" data-hashtags="c&#43;&#43;,dll"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.beancake.cn/vc-%E5%AF%BC%E5%87%BAdll%E5%B8%B8%E8%A7%81%E6%96%B9%E6%B3%95/" data-hashtag="c&#43;&#43;"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="https://blog.beancake.cn/vc-%E5%AF%BC%E5%87%BAdll%E5%B8%B8%E8%A7%81%E6%96%B9%E6%B3%95/" data-title="VC&#43;&#43;导出Dll常见方法" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.beancake.cn/vc-%E5%AF%BC%E5%87%BAdll%E5%B8%B8%E8%A7%81%E6%96%B9%E6%B3%95/" data-title="VC&#43;&#43;导出Dll常见方法"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.beancake.cn/vc-%E5%AF%BC%E5%87%BAdll%E5%B8%B8%E8%A7%81%E6%96%B9%E6%B3%95/" data-title="VC&#43;&#43;导出Dll常见方法"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Myspace" data-sharer="myspace" data-url="https://blog.beancake.cn/vc-%E5%AF%BC%E5%87%BAdll%E5%B8%B8%E8%A7%81%E6%96%B9%E6%B3%95/" data-title="VC&#43;&#43;导出Dll常见方法" data-description=""><i data-svg-src="/lib/simple-icons/icons/myspace.min.svg"></i></a><a href="javascript:void(0);" title="分享到 Blogger" data-sharer="blogger" data-url="https://blog.beancake.cn/vc-%E5%AF%BC%E5%87%BAdll%E5%B8%B8%E8%A7%81%E6%96%B9%E6%B3%95/" data-title="VC&#43;&#43;导出Dll常见方法" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="https://blog.beancake.cn/vc-%E5%AF%BC%E5%87%BAdll%E5%B8%B8%E8%A7%81%E6%96%B9%E6%B3%95/" data-title="VC&#43;&#43;导出Dll常见方法"><i class="fab fa-evernote fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/c&#43;&#43;/">c&#43;&#43;</a>,&nbsp;<a href="/tags/dll/">dll</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/git-psuh%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" class="prev" rel="prev" title="git push常见问题"><i class="fas fa-angle-left fa-fw"></i>git push常见问题</a>
+            <a href="/windows%E5%BC%80%E5%90%AFssh%E6%9C%8D%E5%8A%A1%E5%99%A8/" class="next" rel="next" title="windows开启SSH服务器">windows开启SSH服务器<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.76.5">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">zyscn</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+                    <br><span id="busuanzi_container_site_pv">本站总访问量&nbsp<span id="busuanzi_value_site_pv"></span>&nbsp次</span>&nbsp;|&nbsp;本站访客数&nbsp<span id="busuanzi_value_site_uv"></span>&nbsp人</span></div>
+        </div>
+    </footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><script type="text/javascript" src="/lib/valine/Valine.min.js"></script><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":20},"comment":{"valine":{"appId":"7W7eb3SB8pwb9VJOJAVVv61f-gzGzoHsz","appKey":"HWj6JaU0NhKKiTC0Ur0a0C0I","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@5.0.1/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-cn","pageSize":10,"placeholder":"说点什么吧...","recordIP":true,"visitor":true}},"search":{"algoliaAppID":"EV52XFAC18","algoliaIndex":"beancake","algoliaSearchKey":"0ee76b062faa40c32063a4f7c0911352","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'UA-172451300-1', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-172451300-1" async></script></body>
+</html>

@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>安全 - 标签 - 思考随笔</title>
+        <link>https://blog.beancake.cn/tags/%E5%AE%89%E5%85%A8/</link>
+        <description>安全 - 标签 - 思考随笔</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>18370203@qq.com (zyscn)</managingEditor>
+            <webMaster>18370203@qq.com (zyscn)</webMaster><lastBuildDate>Fri, 07 Feb 2020 12:00:00 &#43;0000</lastBuildDate><atom:link href="https://blog.beancake.cn/tags/%E5%AE%89%E5%85%A8/" rel="self" type="application/rss+xml" /><item>
+    <title>web安全笔记</title>
+    <link>https://blog.beancake.cn/web%E5%AE%89%E5%85%A8/</link>
+    <pubDate>Fri, 07 Feb 2020 12:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://blog.beancake.cn/web%E5%AE%89%E5%85%A8/</guid>
+    <description><![CDATA[基础 前端与后端知识 web漏洞 XSS CSRF 点击劫持 URL跳转 SQL注入 命令注入 上传下载漏洞 web安全工具 浏览器 Chrome Firefox(hackbar,cookie manager) IE 代理抓包 Burpsuite Charles Fiddler 漏洞扫描 御剑 AWVS Netsparker APPScan]]></description>
+</item></channel>
+</rss>

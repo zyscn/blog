@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>ssh - 分类 - 思考随笔</title>
+        <link>https://blog.beancake.cn/categories/ssh/</link>
+        <description>ssh - 分类 - 思考随笔</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>18370203@qq.com (zyscn)</managingEditor>
+            <webMaster>18370203@qq.com (zyscn)</webMaster><lastBuildDate>Wed, 13 Nov 2019 12:00:00 &#43;0000</lastBuildDate><atom:link href="https://blog.beancake.cn/categories/ssh/" rel="self" type="application/rss+xml" /><item>
+    <title>windows开启SSH服务器</title>
+    <link>https://blog.beancake.cn/windows%E5%BC%80%E5%90%AFssh%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
+    <pubDate>Wed, 13 Nov 2019 12:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://blog.beancake.cn/windows%E5%BC%80%E5%90%AFssh%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
+    <description><![CDATA[SSH服务器 安装 openssh 设置-应用-应用和功能-管理可选功能-添加功能-OpenSSH 服务器 开启SSH 服务 PowerShell 管理员运行： 启动 SSH 服务net start sshd 1 net start]]></description>
+</item></channel>
+</rss>

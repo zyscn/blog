@@ -1,0 +1,80 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>思考随笔</title>
+        <link>https://blog.beancake.cn/</link>
+        <description>zys的个人分享哲学，数学，编程知识的博客</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>18370203@qq.com (zyscn)</managingEditor>
+            <webMaster>18370203@qq.com (zyscn)</webMaster><lastBuildDate>Thu, 11 Jun 2020 12:00:00 &#43;0000</lastBuildDate>
+            <atom:link href="https://blog.beancake.cn/index.xml" rel="self" type="application/rss+xml" />
+        <item>
+    <title>豆饼导航</title>
+    <link>https://blog.beancake.cn/%E8%B1%86%E9%A5%BC%E5%AF%BC%E8%88%AA/</link>
+    <pubDate>Wed, 01 Jan 2020 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://blog.beancake.cn/%E8%B1%86%E9%A5%BC%E5%AF%BC%E8%88%AA/</guid>
+    <description><![CDATA[影视大全 逗别看 五杀电影院 看看屋 电视直播 在线之家 9528 人人影视美剧 中国高清网 妮可动漫 博客精选 如有乐享 阮一峰 卢松松博客 胡萝卜周 lrepacks 奔跑中的奶酪 传媒老跟]]></description>
+</item><item>
+    <title>关于量子宇宙的10个误区</title>
+    <link>https://blog.beancake.cn/%E5%85%B3%E4%BA%8E%E9%87%8F%E5%AD%90%E5%AE%87%E5%AE%99%E7%9A%8410%E4%B8%AA%E8%AF%AF%E5%8C%BA/</link>
+    <pubDate>Thu, 11 Jun 2020 12:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://blog.beancake.cn/%E5%85%B3%E4%BA%8E%E9%87%8F%E5%AD%90%E5%AE%87%E5%AE%99%E7%9A%8410%E4%B8%AA%E8%AF%AF%E5%8C%BA/</guid>
+    <description><![CDATA[10 Myths About The Quantum Universe For centuries, the laws of physics seemed completely deterministic. If you knew where every particle was, how fast it was moving, and what the forces were between them at any one instant, you could know exactly where they&rsquo;d be and what they&rsquo;d be doing at any point in the future. From Newton to Maxwell, the rules that governed the Universe had no built-in, inherent]]></description>
+</item><item>
+    <title>从脑科学到人工智能的示例</title>
+    <link>https://blog.beancake.cn/%E8%84%91%E7%A7%91%E5%AD%A6/</link>
+    <pubDate>Fri, 08 May 2020 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://blog.beancake.cn/%E8%84%91%E7%A7%91%E5%AD%A6/</guid>
+    <description><![CDATA[.childbox{ width: 80vmin; height: 45vmin; }]]></description>
+</item><item>
+    <title>web安全笔记</title>
+    <link>https://blog.beancake.cn/web%E5%AE%89%E5%85%A8/</link>
+    <pubDate>Fri, 07 Feb 2020 12:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://blog.beancake.cn/web%E5%AE%89%E5%85%A8/</guid>
+    <description><![CDATA[基础 前端与后端知识 web漏洞 XSS CSRF 点击劫持 URL跳转 SQL注入 命令注入 上传下载漏洞 web安全工具 浏览器 Chrome Firefox(hackbar,cookie manager) IE 代理抓包 Burpsuite Charles Fiddler 漏洞扫描 御剑 AWVS Netsparker APPScan]]></description>
+</item><item>
+    <title>python调用大漠插件</title>
+    <link>https://blog.beancake.cn/python%E8%B0%83%E7%94%A8%E5%A4%A7%E6%BC%A0%E6%8F%92%E4%BB%B6/</link>
+    <pubDate>Mon, 03 Feb 2020 12:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://blog.beancake.cn/python%E8%B0%83%E7%94%A8%E5%A4%A7%E6%BC%A0%E6%8F%92%E4%BB%B6/</guid>
+    <description><![CDATA[利用init破解权限和免注册com 1 2 3 4 5 6 7 8 9 10 #coding=utf-8 from ctypes import windll from comtypes import client #加载init.dll Reg = windll.LoadLibrary(&#34;./init.dll&#34;) Reg.init() dm=client.CreateObject(&#34;dm.dmsoft&#34;) print(dm.ver()) dm.MoveTO(10,10) 附件]]></description>
+</item><item>
+    <title>rust导出Dll</title>
+    <link>https://blog.beancake.cn/rust%E5%AF%BC%E5%87%BAdll/</link>
+    <pubDate>Sun, 02 Feb 2020 12:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://blog.beancake.cn/rust%E5%AF%BC%E5%87%BAdll/</guid>
+    <description><![CDATA[rust导出dll 首先创建lib项目 cargo new addlib -lib 编辑lib.rs 1 2 3 4 5 6 7 8 9 10 11 12 13 //添加一个标记 #[no_mangle]，防止编译器在]]></description>
+</item><item>
+    <title>rust环境配置</title>
+    <link>https://blog.beancake.cn/rust%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</link>
+    <pubDate>Sat, 01 Feb 2020 10:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://blog.beancake.cn/rust%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</guid>
+    <description><![CDATA[官网下载初始化包 官网 根据初始化包安装对应的工具 主要安装rustup和cargo工具链 国内原因换源 rustup源 linux 1 2 3 $ # for bash $ echo &#39;export RUSTUP_DIST_SERVER=https://mirrors.tuna.tsinghua.edu.cn/rustup&#39; &gt;&gt; ~/.bash_profile windows]]></description>
+</item><item>
+    <title>windows开启SSH服务器</title>
+    <link>https://blog.beancake.cn/windows%E5%BC%80%E5%90%AFssh%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
+    <pubDate>Wed, 13 Nov 2019 12:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://blog.beancake.cn/windows%E5%BC%80%E5%90%AFssh%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
+    <description><![CDATA[SSH服务器 安装 openssh 设置-应用-应用和功能-管理可选功能-添加功能-OpenSSH 服务器 开启SSH 服务 PowerShell 管理员运行： 启动 SSH 服务net start sshd 1 net start]]></description>
+</item><item>
+    <title>VC&#43;&#43;导出Dll常见方法</title>
+    <link>https://blog.beancake.cn/vc-%E5%AF%BC%E5%87%BAdll%E5%B8%B8%E8%A7%81%E6%96%B9%E6%B3%95/</link>
+    <pubDate>Fri, 08 Nov 2019 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://blog.beancake.cn/vc-%E5%AF%BC%E5%87%BAdll%E5%B8%B8%E8%A7%81%E6%96%B9%E6%B3%95/</guid>
+    <description><![CDATA[调用约定 _stdcall,_cdecl _stdcall调用 按C编译方式，_stdcall调用约定在输出函数名前面加下划线，后面加“@”符号和参数的字节数，形如_func]]></description>
+</item><item>
+    <title>git push常见问题</title>
+    <link>https://blog.beancake.cn/git-psuh%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</link>
+    <pubDate>Tue, 08 Oct 2019 12:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://blog.beancake.cn/git-psuh%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</guid>
+    <description><![CDATA[git push常见问题 fatal: refusing to merge unrelated histories 在git pull或者git push中都有可能会遇到，这是因为两个分支没有取得关系，解决办法是在操作命令后面加-]]></description>
+</item></channel>
+</rss>

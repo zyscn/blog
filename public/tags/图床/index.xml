@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>图床 - 标签 - 思考随笔</title>
+        <link>https://blog.beancake.cn/tags/%E5%9B%BE%E5%BA%8A/</link>
+        <description>图床 - 标签 - 思考随笔</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>18370203@qq.com (zyscn)</managingEditor>
+            <webMaster>18370203@qq.com (zyscn)</webMaster><lastBuildDate>Tue, 08 Jan 2019 12:00:00 &#43;0000</lastBuildDate><atom:link href="https://blog.beancake.cn/tags/%E5%9B%BE%E5%BA%8A/" rel="self" type="application/rss+xml" /><item>
+    <title>图床选择</title>
+    <link>https://blog.beancake.cn/%E5%9B%BE%E5%BA%8A%E8%AF%84%E6%B5%8B/</link>
+    <pubDate>Tue, 08 Jan 2019 12:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://blog.beancake.cn/%E5%9B%BE%E5%BA%8A%E8%AF%84%E6%B5%8B/</guid>
+    <description><![CDATA[文章长期更新 #公共图床排名 ##第一名 新浪微博图床 新浪微博图床无论是国内外速度还是CDN和HTTPS的支持都一样不少，谷歌商店也有相应的插件，]]></description>
+</item></channel>
+</rss>
