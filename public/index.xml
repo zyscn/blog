@@ -4,7 +4,7 @@
         <link>https://blog.beancake.cn/</link>
         <description>zys的个人分享哲学，数学，编程知识的博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>18370203@qq.com (zyscn)</managingEditor>
-            <webMaster>18370203@qq.com (zyscn)</webMaster><lastBuildDate>Thu, 11 Jun 2020 12:00:00 &#43;0000</lastBuildDate>
+            <webMaster>18370203@qq.com (zyscn)</webMaster><lastBuildDate>Mon, 11 Oct 2021 11:00:00 &#43;0800</lastBuildDate>
             <atom:link href="https://blog.beancake.cn/index.xml" rel="self" type="application/rss+xml" />
         <item>
     <title>豆饼导航</title>
@@ -12,7 +12,49 @@
     <pubDate>Wed, 01 Jan 2020 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>https://blog.beancake.cn/%E8%B1%86%E9%A5%BC%E5%AF%BC%E8%88%AA/</guid>
-    <description><![CDATA[影视大全 逗别看 五杀电影院 看看屋 电视直播 在线之家 9528 人人影视美剧 中国高清网 妮可动漫 博客精选 如有乐享 阮一峰 卢松松博客 胡萝卜周 lrepacks 奔跑中的奶酪 传媒老跟]]></description>
+    <description><![CDATA[影视大全 五杀电影院 在线之家 中国高清网 妮可动漫 博客精选 如有乐享 阮一峰 卢松松博客 lrepacks 福利吧 导航大全 龙轩导航 设计导航]]></description>
+</item><item>
+    <title>做了20年软件工程师学到的20件事</title>
+    <link>https://blog.beancake.cn/20%E5%B9%B4%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%BB%8F%E9%AA%8C%E5%AD%A6%E5%88%B0%E7%9A%8420%E4%BB%B6%E4%BA%8B/</link>
+    <pubDate>Mon, 11 Oct 2021 11:00:00 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://blog.beancake.cn/20%E5%B9%B4%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%BB%8F%E9%AA%8C%E5%AD%A6%E5%88%B0%E7%9A%8420%E4%BB%B6%E4%BA%8B/</guid>
+    <description><![CDATA[You’re about to read a blog post with a lot of advice. Learning from those who came before us is instrumental to success, but we often forget an important caveat. Almost all advice is contextual, yet it is rarely delivered with any context. 你将要读到一篇博客文章，里面有很多建议。向我]]></description>
+</item><item>
+    <title>nodejs调用dll</title>
+    <link>https://blog.beancake.cn/node%E8%B0%83%E7%94%A8dll/</link>
+    <pubDate>Wed, 06 Oct 2021 11:00:00 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://blog.beancake.cn/node%E8%B0%83%E7%94%A8dll/</guid>
+    <description><![CDATA[nodejs通过ffi-napi调用系统dll文件 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 const ffi = require(&#39;ffi-napi&#39;); function showText(str) { return Buffer.from(str+&#39;\0&#39;,&#39;ucs2&#39;); }; // 通过ffi加载user32.dll]]></description>
+</item><item>
+    <title>python调用libxl插件</title>
+    <link>https://blog.beancake.cn/python%E8%B0%83%E7%94%A8libxl%E6%8F%92%E4%BB%B6/</link>
+    <pubDate>Tue, 28 Sep 2021 12:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://blog.beancake.cn/python%E8%B0%83%E7%94%A8libxl%E6%8F%92%E4%BB%B6/</guid>
+    <description><![CDATA[libxl官网 封装libxl.py示例 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 #coding=utf-8 from ctypes import * class Excel: def __init__(self): self.xl = windll.LoadLibrary(&#34;./libxl.dll&#34;) def getxl(self): return self.xl def]]></description>
+</item><item>
+    <title>免费的计算机编程类中文书籍</title>
+    <link>https://blog.beancake.cn/free-programming-books-zh_cn/</link>
+    <pubDate>Thu, 20 May 2021 20:30:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://blog.beancake.cn/free-programming-books-zh_cn/</guid>
+    <description><![CDATA[非编程语言类 置顶 [笔记]前端工程师的入门与进阶 💯 [全文]如何正确的学习 Node.js 💯 操作系统 开源世界旅行手册 鸟哥的Linux私房菜 The Linux Command Line (中英文版)]]></description>
+</item><item>
+    <title>计算机网络</title>
+    <link>https://blog.beancake.cn/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%80%9A%E8%AE%AF%E7%9A%84%E7%B3%BB%E7%BB%9F%E6%80%A7%E6%89%AB%E7%9B%B2%E4%BB%8E%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E5%88%B0osi-%E6%A8%A1%E5%9E%8B/</link>
+    <pubDate>Thu, 20 May 2021 20:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://blog.beancake.cn/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%80%9A%E8%AE%AF%E7%9A%84%E7%B3%BB%E7%BB%9F%E6%80%A7%E6%89%AB%E7%9B%B2%E4%BB%8E%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E5%88%B0osi-%E6%A8%A1%E5%9E%8B/</guid>
+    <description><![CDATA[★本文的目标读者 今天这篇的标题是“扫盲”，也就是说：即使那些完全不懂 IT 领域，也不懂通讯领域的读者，依然能看懂（至少能看懂一部分）。为了做到这]]></description>
+</item><item>
+    <title>MySQL入门</title>
+    <link>https://blog.beancake.cn/21%E5%88%86%E9%92%9F-mysql-%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B-wid/</link>
+    <pubDate>Thu, 20 May 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://blog.beancake.cn/21%E5%88%86%E9%92%9F-mysql-%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B-wid/</guid>
+    <description><![CDATA[MySQL的相关概念介绍 MySQL 为关系型数据库(Relational Database Management System), 这种所谓的&quot;关系型&quot;可以理解为&quot;表格&qu]]></description>
 </item><item>
     <title>关于量子宇宙的10个误区</title>
     <link>https://blog.beancake.cn/%E5%85%B3%E4%BA%8E%E9%87%8F%E5%AD%90%E5%AE%87%E5%AE%99%E7%9A%8410%E4%B8%AA%E8%AF%AF%E5%8C%BA/</link>
@@ -34,47 +76,5 @@
     <author>作者</author>
     <guid>https://blog.beancake.cn/web%E5%AE%89%E5%85%A8/</guid>
     <description><![CDATA[基础 前端与后端知识 web漏洞 XSS CSRF 点击劫持 URL跳转 SQL注入 命令注入 上传下载漏洞 web安全工具 浏览器 Chrome Firefox(hackbar,cookie manager) IE 代理抓包 Burpsuite Charles Fiddler 漏洞扫描 御剑 AWVS Netsparker APPScan]]></description>
-</item><item>
-    <title>python调用大漠插件</title>
-    <link>https://blog.beancake.cn/python%E8%B0%83%E7%94%A8%E5%A4%A7%E6%BC%A0%E6%8F%92%E4%BB%B6/</link>
-    <pubDate>Mon, 03 Feb 2020 12:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://blog.beancake.cn/python%E8%B0%83%E7%94%A8%E5%A4%A7%E6%BC%A0%E6%8F%92%E4%BB%B6/</guid>
-    <description><![CDATA[利用init破解权限和免注册com 1 2 3 4 5 6 7 8 9 10 #coding=utf-8 from ctypes import windll from comtypes import client #加载init.dll Reg = windll.LoadLibrary(&#34;./init.dll&#34;) Reg.init() dm=client.CreateObject(&#34;dm.dmsoft&#34;) print(dm.ver()) dm.MoveTO(10,10) 附件]]></description>
-</item><item>
-    <title>rust导出Dll</title>
-    <link>https://blog.beancake.cn/rust%E5%AF%BC%E5%87%BAdll/</link>
-    <pubDate>Sun, 02 Feb 2020 12:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://blog.beancake.cn/rust%E5%AF%BC%E5%87%BAdll/</guid>
-    <description><![CDATA[rust导出dll 首先创建lib项目 cargo new addlib -lib 编辑lib.rs 1 2 3 4 5 6 7 8 9 10 11 12 13 //添加一个标记 #[no_mangle]，防止编译器在]]></description>
-</item><item>
-    <title>rust环境配置</title>
-    <link>https://blog.beancake.cn/rust%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</link>
-    <pubDate>Sat, 01 Feb 2020 10:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://blog.beancake.cn/rust%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</guid>
-    <description><![CDATA[官网下载初始化包 官网 根据初始化包安装对应的工具 主要安装rustup和cargo工具链 国内原因换源 rustup源 linux 1 2 3 $ # for bash $ echo &#39;export RUSTUP_DIST_SERVER=https://mirrors.tuna.tsinghua.edu.cn/rustup&#39; &gt;&gt; ~/.bash_profile windows]]></description>
-</item><item>
-    <title>windows开启SSH服务器</title>
-    <link>https://blog.beancake.cn/windows%E5%BC%80%E5%90%AFssh%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
-    <pubDate>Wed, 13 Nov 2019 12:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://blog.beancake.cn/windows%E5%BC%80%E5%90%AFssh%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
-    <description><![CDATA[SSH服务器 安装 openssh 设置-应用-应用和功能-管理可选功能-添加功能-OpenSSH 服务器 开启SSH 服务 PowerShell 管理员运行： 启动 SSH 服务net start sshd 1 net start]]></description>
-</item><item>
-    <title>VC&#43;&#43;导出Dll常见方法</title>
-    <link>https://blog.beancake.cn/vc-%E5%AF%BC%E5%87%BAdll%E5%B8%B8%E8%A7%81%E6%96%B9%E6%B3%95/</link>
-    <pubDate>Fri, 08 Nov 2019 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://blog.beancake.cn/vc-%E5%AF%BC%E5%87%BAdll%E5%B8%B8%E8%A7%81%E6%96%B9%E6%B3%95/</guid>
-    <description><![CDATA[调用约定 _stdcall,_cdecl _stdcall调用 按C编译方式，_stdcall调用约定在输出函数名前面加下划线，后面加“@”符号和参数的字节数，形如_func]]></description>
-</item><item>
-    <title>git push常见问题</title>
-    <link>https://blog.beancake.cn/git-psuh%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</link>
-    <pubDate>Tue, 08 Oct 2019 12:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://blog.beancake.cn/git-psuh%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</guid>
-    <description><![CDATA[git push常见问题 fatal: refusing to merge unrelated histories 在git pull或者git push中都有可能会遇到，这是因为两个分支没有取得关系，解决办法是在操作命令后面加-]]></description>
 </item></channel>
 </rss>

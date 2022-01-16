@@ -8,10 +8,10 @@
         <title>python调用大漠插件 - 思考随笔</title><meta name="Description" content="zys的个人分享哲学，数学，编程知识的博客"><meta property="og:title" content="python调用大漠插件" />
 <meta property="og:description" content="利用init破解权限和免注册com 1 2 3 4 5 6 7 8 9 10 #coding=utf-8 from ctypes import windll from comtypes import client #加载init.dll Reg = windll.LoadLibrary(&#34;./init.dll&#34;) Reg.init() dm=client.CreateObject(&#34;dm.dmsoft&#34;) print(dm.ver()) dm.MoveTO(10,10) 附件" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.beancake.cn/python%E8%B0%83%E7%94%A8%E5%A4%A7%E6%BC%A0%E6%8F%92%E4%BB%B6/" />
-<meta property="og:image" content="https://blog.beancake.cn/logo.png"/>
+<meta property="og:url" content="https://blog.beancake.cn/python%E8%B0%83%E7%94%A8%E5%A4%A7%E6%BC%A0%E6%8F%92%E4%BB%B6/" /><meta property="og:image" content="https://blog.beancake.cn/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2020-02-03T12:00:00+00:00" />
 <meta property="article:modified_time" content="2020-02-03T12:00:00+00:00" />
+
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://blog.beancake.cn/logo.png"/>
 
@@ -123,7 +123,7 @@
             </div><div class="content" id="content"><h2 id="利用init破解权限和免注册com">利用init破解权限和免注册com</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -135,7 +135,7 @@
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1">#coding=utf-8</span>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1">#coding=utf-8</span>
 <span class="kn">from</span> <span class="nn">ctypes</span> <span class="kn">import</span> <span class="n">windll</span>
 <span class="kn">from</span> <span class="nn">comtypes</span> <span class="kn">import</span> <span class="n">client</span>
 
@@ -143,7 +143,7 @@
 <span class="n">Reg</span> <span class="o">=</span> <span class="n">windll</span><span class="o">.</span><span class="n">LoadLibrary</span><span class="p">(</span><span class="s2">&#34;./init.dll&#34;</span><span class="p">)</span>
 <span class="n">Reg</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
 <span class="n">dm</span><span class="o">=</span><span class="n">client</span><span class="o">.</span><span class="n">CreateObject</span><span class="p">(</span><span class="s2">&#34;dm.dmsoft&#34;</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">dm</span><span class="o">.</span><span class="n">ver</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dm</span><span class="o">.</span><span class="n">ver</span><span class="p">())</span>
 <span class="n">dm</span><span class="o">.</span><span class="n">MoveTO</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
@@ -178,9 +178,10 @@
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.76.5">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.88.1">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">zyscn</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
-                    <br><span id="busuanzi_container_site_pv">本站总访问量&nbsp<span id="busuanzi_value_site_pv"></span>&nbsp次</span>&nbsp;|&nbsp;本站访客数&nbsp<span id="busuanzi_value_site_uv"></span>&nbsp人</span></div>
+                    <br><span id="busuanzi_container_site_pv">本站总访问量&nbsp<span id="busuanzi_value_site_pv"></span>&nbsp次</span>&nbsp;|&nbsp;本站访客数&nbsp<span id="busuanzi_value_site_uv"></span>&nbsp人</span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+                    <span class="icp"><a href="https://beian.miit.gov.cn/" target="_blank">鲁ICP备2020043494号</a></span></div>
         </div>
     </footer>
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div>

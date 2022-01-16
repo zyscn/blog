@@ -4,7 +4,14 @@
         <link>https://blog.beancake.cn/tags/javascript/</link>
         <description>JavaScript - 标签 - 思考随笔</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>18370203@qq.com (zyscn)</managingEditor>
-            <webMaster>18370203@qq.com (zyscn)</webMaster><lastBuildDate>Tue, 16 Apr 2019 12:00:00 &#43;0000</lastBuildDate><atom:link href="https://blog.beancake.cn/tags/javascript/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>18370203@qq.com (zyscn)</webMaster><lastBuildDate>Wed, 06 Oct 2021 11:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.beancake.cn/tags/javascript/" rel="self" type="application/rss+xml" /><item>
+    <title>nodejs调用dll</title>
+    <link>https://blog.beancake.cn/node%E8%B0%83%E7%94%A8dll/</link>
+    <pubDate>Wed, 06 Oct 2021 11:00:00 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://blog.beancake.cn/node%E8%B0%83%E7%94%A8dll/</guid>
+    <description><![CDATA[nodejs通过ffi-napi调用系统dll文件 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 const ffi = require(&#39;ffi-napi&#39;); function showText(str) { return Buffer.from(str+&#39;\0&#39;,&#39;ucs2&#39;); }; // 通过ffi加载user32.dll]]></description>
+</item><item>
     <title>闭包</title>
     <link>https://blog.beancake.cn/%E9%97%AD%E5%8C%85/</link>
     <pubDate>Tue, 16 Apr 2019 12:00:00 &#43;0000</pubDate>

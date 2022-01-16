@@ -8,10 +8,10 @@
         <title>windows开启SSH服务器 - 思考随笔</title><meta name="Description" content="zys的个人分享哲学，数学，编程知识的博客"><meta property="og:title" content="windows开启SSH服务器" />
 <meta property="og:description" content="SSH服务器 安装 openssh 设置-应用-应用和功能-管理可选功能-添加功能-OpenSSH 服务器 开启SSH 服务 PowerShell 管理员运行： 启动 SSH 服务net start sshd 1 net start" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.beancake.cn/windows%E5%BC%80%E5%90%AFssh%E6%9C%8D%E5%8A%A1%E5%99%A8/" />
-<meta property="og:image" content="https://blog.beancake.cn/logo.png"/>
+<meta property="og:url" content="https://blog.beancake.cn/windows%E5%BC%80%E5%90%AFssh%E6%9C%8D%E5%8A%A1%E5%99%A8/" /><meta property="og:image" content="https://blog.beancake.cn/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2019-11-13T12:00:00+00:00" />
 <meta property="article:modified_time" content="2019-11-13T12:00:00+00:00" />
+
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://blog.beancake.cn/logo.png"/>
 
@@ -133,10 +133,10 @@
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="n">net</span> <span class="nb">start </span><span class="n">sshd</span>
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="n">net</span> <span class="nb">start </span><span class="n">sshd</span>
 </code></pre></td></tr></table>
 </div>
 </div><ul>
@@ -151,10 +151,10 @@
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="n">net</span> <span class="n">stop</span> <span class="n">sshd</span>
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="n">net</span> <span class="n">stop</span> <span class="n">sshd</span>
 </code></pre></td></tr></table>
 </div>
 </div><p><code>OpenSSH SSH Server 服务已成功停止。</code></p>
@@ -164,10 +164,10 @@
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="nb">New-ItemProperty</span> <span class="n">-Path</span> <span class="s2">&#34;HKLM:\SOFTWARE\OpenSSH&#34;</span> <span class="n">-Name</span> <span class="n">DefaultShell</span> <span class="n">-Value</span> <span class="s2">&#34;C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe&#34;</span> <span class="n">-PropertyType</span> <span class="n">String</span> <span class="n">-Force</span>
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="nb">New-ItemProperty</span> <span class="n">-Path</span> <span class="s2">&#34;HKLM:\SOFTWARE\OpenSSH&#34;</span> <span class="n">-Name</span> <span class="n">DefaultShell</span> <span class="n">-Value</span> <span class="s2">&#34;C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe&#34;</span> <span class="n">-PropertyType</span> <span class="n">String</span> <span class="n">-Force</span>
 </code></pre></td></tr></table>
 </div>
 </div><h1 id="ssh客户端">SSH客户端</h1>
@@ -202,9 +202,10 @@
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.76.5">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.88.1">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">zyscn</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
-                    <br><span id="busuanzi_container_site_pv">本站总访问量&nbsp<span id="busuanzi_value_site_pv"></span>&nbsp次</span>&nbsp;|&nbsp;本站访客数&nbsp<span id="busuanzi_value_site_uv"></span>&nbsp人</span></div>
+                    <br><span id="busuanzi_container_site_pv">本站总访问量&nbsp<span id="busuanzi_value_site_pv"></span>&nbsp次</span>&nbsp;|&nbsp;本站访客数&nbsp<span id="busuanzi_value_site_uv"></span>&nbsp人</span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+                    <span class="icp"><a href="https://beian.miit.gov.cn/" target="_blank">鲁ICP备2020043494号</a></span></div>
         </div>
     </footer>
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div>

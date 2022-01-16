@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>SQL - 分类 - 思考随笔</title>
+        <link>https://blog.beancake.cn/categories/sql/</link>
+        <description>SQL - 分类 - 思考随笔</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>18370203@qq.com (zyscn)</managingEditor>
+            <webMaster>18370203@qq.com (zyscn)</webMaster><lastBuildDate>Thu, 20 May 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://blog.beancake.cn/categories/sql/" rel="self" type="application/rss+xml" /><item>
+    <title>MySQL入门</title>
+    <link>https://blog.beancake.cn/21%E5%88%86%E9%92%9F-mysql-%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B-wid/</link>
+    <pubDate>Thu, 20 May 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://blog.beancake.cn/21%E5%88%86%E9%92%9F-mysql-%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B-wid/</guid>
+    <description><![CDATA[MySQL的相关概念介绍 MySQL 为关系型数据库(Relational Database Management System), 这种所谓的&quot;关系型&quot;可以理解为&quot;表格&qu]]></description>
+</item></channel>
+</rss>
