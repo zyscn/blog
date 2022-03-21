@@ -1,0 +1,21 @@
+.archive {
+  .single-title {
+    text-align: right;
+
+    sup {
+      color: $global-font-secondary-color;
+
+      [theme='dark'] & {
+        color: $global-font-secondary-color-dark;
+      }
+    }
+  }
+
+  .group-title {
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  @import '../_partial/_archive/terms';
+  @import '../_partial/_archive/tags';
+}
