@@ -20,7 +20,7 @@ from ctypes import *
 
 class Excel:
         def __init__(self):
-            self.xl = windll.LoadLibrary("./libxl.dll")
+            self.xl = CDLL("./libxl.dll")
         def getxl(self):
             return self.xl
         def createXML(self):
