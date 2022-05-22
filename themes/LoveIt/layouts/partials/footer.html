@@ -38,7 +38,6 @@
                 {{- /* License */ -}}
                 {{- with .Site.Params.footer.license -}}
                     &nbsp;|&nbsp;<span class="license">{{ . | safeHTML }}</span>
-                    <br><span id="busuanzi_container_site_pv">本站总访问量&nbsp<span id="busuanzi_value_site_pv"></span>&nbsp次</span>&nbsp;|&nbsp;本站访客数&nbsp<span id="busuanzi_value_site_uv"></span>&nbsp人</span>
                 {{- end -}}
 
                 {{- /* ICP */ -}}
@@ -49,5 +48,4 @@
             </div>
         </div>
     </footer>
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 {{- end -}}
