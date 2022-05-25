@@ -1,8 +1,8 @@
 ---
 
 title: "python封装三个常用PHP函数"
-date: 2022-05-25T18:00:00
-lastmod: 2022-05-25T18:00:00
+date: 2022-05-25
+lastmod: 2022-05-25
 timezone: UTC+8
 draft: false
 tags: ["python","php"]
