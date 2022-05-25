@@ -44,7 +44,7 @@ theme = "LoveIt"
   #  LoveIt 主题版本
   version = "0.2.X"
   # 网站描述
-  description = "zys的个人分享哲学，数学，编程知识的博客"
+  description = "zys的个人分享哲学,数学,编程知识的博客"
   # 网站关键词
   keywords = ["blog","哲学","数学","计算机","随笔","思考"]
   # 网站默认主题样式 ("light", "dark", "auto")
