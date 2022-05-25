@@ -10,9 +10,9 @@ jobs:
     runs-on: ubuntu-18.04	# 在什么环境运行任务
     steps:
       - uses: actions/checkout@v2	# 引用actions/checkout这个action，与所在的github仓库同名
-        with:
-          submodules: true  # Fetch Hugo themes (true OR recursive) 获取submodule主题
-          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+        # with:
+        #   submodules: true  # Fetch Hugo themes (true OR recursive) 获取submodule主题
+        #   fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
 
       - name: Setup Hugo	# 步骤名自取
         uses: peaceiris/actions-hugo@v2	# hugo官方提供的action，用于在任务环境中获取hugo
