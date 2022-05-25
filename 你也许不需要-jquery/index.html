@@ -1,0 +1,1478 @@
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta http-equiv=x-ua-compatible content="IE=edge, chrome=1"><title>你也许不需要 jQuery - 思考随笔</title><meta name=Description content="zys的个人分享哲学,数学,编程知识的博客"><meta property="og:title" content="你也许不需要 jQuery "><meta property="og:description" content="你也许不需要 jQuery （You (Might) Don&rsquo;t Need jQuery） 前端发展很快，现代浏览器原生 API 已经足够好用。我们并不需要为了操作 DOM、Event 等再学习一下 jQuery 的"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.beancake.cn/%E4%BD%A0%E4%B9%9F%E8%AE%B8%E4%B8%8D%E9%9C%80%E8%A6%81-jquery/"><meta property="og:image" content="https://blog.beancake.cn/logo.png"><meta property="article:section" content="posts"><meta property="article:published_time" content="2022-01-19T12:00:00+00:00"><meta property="article:modified_time" content="2022-01-19T12:00:00+00:00"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://blog.beancake.cn/logo.png"><meta name=twitter:title content="你也许不需要 jQuery "><meta name=twitter:description content="你也许不需要 jQuery （You (Might) Don&rsquo;t Need jQuery） 前端发展很快，现代浏览器原生 API 已经足够好用。我们并不需要为了操作 DOM、Event 等再学习一下 jQuery 的"><meta name=application-name content="思考随笔"><meta name=apple-mobile-web-app-title content="思考随笔"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://blog.beancake.cn/%E4%BD%A0%E4%B9%9F%E8%AE%B8%E4%B8%8D%E9%9C%80%E8%A6%81-jquery/><link rel=prev href=https://blog.beancake.cn/20%E5%B9%B4%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%BB%8F%E9%AA%8C%E5%AD%A6%E5%88%B0%E7%9A%8420%E4%BB%B6%E4%BA%8B/><link rel=next href=https://blog.beancake.cn/%E5%BC%BA%E5%A4%A7%E7%9A%84%E6%A8%A1%E5%9D%97%E5%8C%96%E8%AE%A1%E7%AE%97%E6%9C%BA/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"你也许不需要 jQuery ","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/blog.beancake.cn\/%E4%BD%A0%E4%B9%9F%E8%AE%B8%E4%B8%8D%E9%9C%80%E8%A6%81-jquery\/"},"genre":"posts","keywords":"JavaScript, 编程","wordcount":4338,"url":"https:\/\/blog.beancake.cn\/%E4%BD%A0%E4%B9%9F%E8%AE%B8%E4%B8%8D%E9%9C%80%E8%A6%81-jquery\/","datePublished":"2022-01-19T12:00:00+00:00","dateModified":"2022-01-19T12:00:00+00:00","publisher":{"@type":"Organization","name":"zyscn"},"author":{"@type":"Person","name":"zys"},"description":""}</script></head><body header-desktop=fixed header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem("theme")?localStorage.getItem("theme")==="dark":"auto"==="auto"?window.matchMedia("(prefers-color-scheme: dark)").matches:"auto"==="dark")&&document.body.setAttribute("theme","dark")</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=/ title=思考随笔>思考随笔</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/posts/>文章 </a><a class=menu-item href=/tags/>标签 </a><a class=menu-item href=/categories/>分类 </a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop>
+<input type=text placeholder=搜索文章标题或内容... id=search-input-desktop>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-desktop title=搜索><i class="fas fa-search fa-fw"></i></a>
+<a href=javascript:void(0); class="search-button search-clear" id=search-clear-desktop title=清空><i class="fas fa-times-circle fa-fw"></i></a>
+<span class="search-button search-loading" id=search-loading-desktop><i class="fas fa-spinner fa-fw fa-spin"></i></span>
+</span><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题><i class="fas fa-adjust fa-fw"></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title=思考随笔>思考随笔</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><div class=search-wrapper><div class="search mobile" id=search-mobile><input type=text placeholder=搜索文章标题或内容... id=search-input-mobile>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-mobile title=搜索><i class="fas fa-search fa-fw"></i></a>
+<a href=javascript:void(0); class="search-button search-clear" id=search-clear-mobile title=清空><i class="fas fa-times-circle fa-fw"></i></a>
+<span class="search-button search-loading" id=search-loading-mobile><i class="fas fa-spinner fa-fw fa-spin"></i></span></div><a href=javascript:void(0); class=search-cancel id=search-cancel-mobile>取消</a></div><a class=menu-item href=/posts/ title>文章</a><a class=menu-item href=/tags/ title>标签</a><a class=menu-item href=/categories/ title>分类</a><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
+<i class="fas fa-adjust fa-fw"></i></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class=toc id=toc-auto><h2 class=toc-title>目录</h2><div class=toc-content id=toc-content-auto></div></div><article class="page single"><h1 class="single-title animated flipInX">你也许不需要 jQuery</h1><div class=post-meta><div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i>zys</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/javascript/><i class="far fa-folder fa-fw"></i>JavaScript</a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2022-01-19>2022-01-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 4338 字&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 9 分钟&nbsp;<span id=/%E4%BD%A0%E4%B9%9F%E8%AE%B8%E4%B8%8D%E9%9C%80%E8%A6%81-jquery/ class=leancloud_visitors data-flag-title="你也许不需要 jQuery ">
+<i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
+</span>&nbsp;</div></div><div class="details toc" id=toc-static kept><div class="details-summary toc-title"><span>目录</span>
+<span><i class="details-icon fas fa-angle-right"></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ul><li><a href=#你也许不需要-jquery-you-might-dont-need-jquery>你也许不需要 jQuery （You (Might) Don&rsquo;t Need jQuery）</a></li><li><a href=#目录>目录</a></li><li><a href=#query-选择器>Query 选择器</a></li><li><a href=#css--style>CSS & Style</a></li><li><a href=#dom-操作>DOM 操作</a></li><li><a href=#ajax>Ajax</a></li><li><a href=#事件>事件</a></li><li><a href=#实用工具>实用工具</a></li><li><a href=#promises>Promises</a></li><li><a href=#动画>动画</a></li><li><a href=#替代品>替代品</a></li><li><a href=#浏览器支持>浏览器支持</a></li></ul></nav></div></div><div class=content id=content><h2 id=你也许不需要-jquery-you-might-dont-need-jquery>你也许不需要 jQuery （You (Might) Don&rsquo;t Need jQuery）</h2><p>前端发展很快，现代浏览器原生 API 已经足够好用。我们并不需要为了操作 DOM、Event 等再学习一下 jQuery 的 API。同时由于 React、Angular、Vue 等框架的流行，直接操作 DOM 不再是好的模式，jQuery 使用场景大大减少。本项目总结了大部分 jQuery API 替代的方法，暂时只支持 IE10 以上浏览器。</p><h2 id=目录>目录</h2><ol><li><p><a href=#%e7%bf%bb%e8%af%91 rel>翻译</a></p></li><li><p><a href=#query-%e9%80%89%e6%8b%a9%e5%99%a8 rel>Query 选择器</a></p></li><li><p><a href=#css--style rel>CSS & Style</a></p></li><li><p><a href=#dom-%e6%93%8d%e4%bd%9c rel>DOM 操作</a></p></li><li><p><a href=#ajax rel>Ajax</a></p></li><li><p><a href=#%e4%ba%8b%e4%bb%b6 rel>事件</a></p></li><li><p><a href=#%e5%ae%9e%e7%94%a8%e5%b7%a5%e5%85%b7 rel>实用工具</a></p></li><li><p><a href=#promises rel>Promises</a></p></li><li><p><a href=#%e5%8a%a8%e7%94%bb rel>动画</a></p></li><li><p><a href=#%e6%9b%bf%e4%bb%a3%e5%93%81 rel>替代品</a></p></li><li><p><a href=#%e6%b5%8f%e8%a7%88%e5%99%a8%e6%94%af%e6%8c%81 rel>浏览器支持</a></p></li></ol><h2 id=query-选择器>Query 选择器</h2><p>常用的 class、id、属性 选择器都可以使用 <code>document.querySelector</code> 或 <code>document.querySelectorAll</code> 替代。区别是</p><ul><li><p><code>document.querySelector</code> 返回第一个匹配的 Element</p></li><li><p><code>document.querySelectorAll</code> 返回所有匹配的 Element 组成的 NodeList。它可以通过 <code>[].slice.call()</code> 把它转成 Array</p></li><li><p>如果匹配不到任何 Element，jQuery 返回空数组 <code>[]</code>，但 <code>document.querySelector</code> 返回 <code>null</code>，注意空指针异常。当找不到时，也可以使用 <code>||</code> 设置默认的值，如 <code>document.querySelectorAll(selector) || []</code></p></li></ul><blockquote><p>注意：<code>document.querySelector</code> 和 <code>document.querySelectorAll</code> 性能很<strong>差</strong>。如果想提高性能，尽量使用 <code>document.getElementById</code>、<code>document.getElementsByClassName</code> 或 <code>document.getElementsByTagName</code>。</p></blockquote><ul><li><p><a href=#1.0 rel>1.0</a> 选择器查询</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$</span><span class=p>(</span><span class=s1>&#39;selector&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nb>document</span><span class=p>.</span><span class=nx>querySelectorAll</span><span class=p>(</span><span class=s1>&#39;selector&#39;</span><span class=p>);</span>
+</span></span></code></pre></td></tr></table></div></div></li><li><p><a href=#1.1 rel>1.1</a> class 查询</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$</span><span class=p>(</span><span class=s1>&#39;.class&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nb>document</span><span class=p>.</span><span class=nx>querySelectorAll</span><span class=p>(</span><span class=s1>&#39;.class&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// or
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nb>document</span><span class=p>.</span><span class=nx>getElementsByClassName</span><span class=p>(</span><span class=s1>&#39;class&#39;</span><span class=p>);</span>
+</span></span></code></pre></td></tr></table></div></div></li><li><p><a href=#1.2 rel>1.2</a> id 查询</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$</span><span class=p>(</span><span class=s1>&#39;#id&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nb>document</span><span class=p>.</span><span class=nx>querySelector</span><span class=p>(</span><span class=s1>&#39;#id&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// or
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nb>document</span><span class=p>.</span><span class=nx>getElementById</span><span class=p>(</span><span class=s1>&#39;id&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// or
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nb>window</span><span class=p>[</span><span class=s1>&#39;id&#39;</span><span class=p>]</span>
+</span></span></code></pre></td></tr></table></div></div></li><li><p><a href=#1.3 rel>1.3</a> 属性查询</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$</span><span class=p>(</span><span class=s1>&#39;a[target=_blank]&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nb>document</span><span class=p>.</span><span class=nx>querySelectorAll</span><span class=p>(</span><span class=s1>&#39;a[target=_blank]&#39;</span><span class=p>);</span>
+</span></span></code></pre></td></tr></table></div></div></li><li><p><a href=#1.4 rel>1.4</a> 后代查询</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$el</span><span class=p>.</span><span class=nx>find</span><span class=p>(</span><span class=s1>&#39;li&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>el</span><span class=p>.</span><span class=nx>querySelectorAll</span><span class=p>(</span><span class=s1>&#39;li&#39;</span><span class=p>);</span>
+</span></span></code></pre></td></tr></table></div></div></li><li><p><a href=#1.5 rel>1.5</a> 兄弟及上下元素</p><ul><li><p>兄弟元素</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$el</span><span class=p>.</span><span class=nx>siblings</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native - latest, Edge13+
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>[...</span><span class=nx>el</span><span class=p>.</span><span class=nx>parentNode</span><span class=p>.</span><span class=nx>children</span><span class=p>].</span><span class=nx>filter</span><span class=p>((</span><span class=nx>child</span><span class=p>)</span> <span class=p>=&gt;</span>
+</span></span><span class=line><span class=cl>  <span class=nx>child</span> <span class=o>!==</span> <span class=nx>el</span>
+</span></span><span class=line><span class=cl><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=c1>// Native (alternative) - latest, Edge13+
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nb>Array</span><span class=p>.</span><span class=nx>from</span><span class=p>(</span><span class=nx>el</span><span class=p>.</span><span class=nx>parentNode</span><span class=p>.</span><span class=nx>children</span><span class=p>).</span><span class=nx>filter</span><span class=p>((</span><span class=nx>child</span><span class=p>)</span> <span class=p>=&gt;</span>
+</span></span><span class=line><span class=cl>  <span class=nx>child</span> <span class=o>!==</span> <span class=nx>el</span>
+</span></span><span class=line><span class=cl><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=c1>// Native - IE10+
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nb>Array</span><span class=p>.</span><span class=nx>prototype</span><span class=p>.</span><span class=nx>filter</span><span class=p>.</span><span class=nx>call</span><span class=p>(</span><span class=nx>el</span><span class=p>.</span><span class=nx>parentNode</span><span class=p>.</span><span class=nx>children</span><span class=p>,</span> <span class=p>(</span><span class=nx>child</span><span class=p>)</span> <span class=p>=&gt;</span>
+</span></span><span class=line><span class=cl>  <span class=nx>child</span> <span class=o>!==</span> <span class=nx>el</span>
+</span></span><span class=line><span class=cl><span class=p>);</span>
+</span></span></code></pre></td></tr></table></div></div></li><li><p>上一个元素</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$el</span><span class=p>.</span><span class=nx>prev</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>el</span><span class=p>.</span><span class=nx>previousElementSibling</span><span class=p>;</span>
+</span></span></code></pre></td></tr></table></div></div></li><li><p>下一个元素</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// next
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$el</span><span class=p>.</span><span class=nx>next</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>el</span><span class=p>.</span><span class=nx>nextElementSibling</span><span class=p>;</span>
+</span></span></code></pre></td></tr></table></div></div></li></ul></li><li><p><a href=#1.6 rel>1.6</a> Closest</p><p>Closest 获得匹配选择器的第一个祖先元素，从当前元素开始沿 DOM 树向上。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$el</span><span class=p>.</span><span class=nx>closest</span><span class=p>(</span><span class=nx>queryString</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native - Only latest, NO IE
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>el</span><span class=p>.</span><span class=nx>closest</span><span class=p>(</span><span class=nx>selector</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native - IE10+
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kd>function</span> <span class=nx>closest</span><span class=p>(</span><span class=nx>el</span><span class=p>,</span> <span class=nx>selector</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>matchesSelector</span> <span class=o>=</span> <span class=nx>el</span><span class=p>.</span><span class=nx>matches</span> <span class=o>||</span> <span class=nx>el</span><span class=p>.</span><span class=nx>webkitMatchesSelector</span> <span class=o>||</span> <span class=nx>el</span><span class=p>.</span><span class=nx>mozMatchesSelector</span> <span class=o>||</span> <span class=nx>el</span><span class=p>.</span><span class=nx>msMatchesSelector</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=k>while</span> <span class=p>(</span><span class=nx>el</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=p>(</span><span class=nx>matchesSelector</span><span class=p>.</span><span class=nx>call</span><span class=p>(</span><span class=nx>el</span><span class=p>,</span> <span class=nx>selector</span><span class=p>))</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=k>return</span> <span class=nx>el</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nx>el</span> <span class=o>=</span> <span class=nx>el</span><span class=p>.</span><span class=nx>parentElement</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=kc>null</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div></li><li><p><a href=#1.7 rel>1.7</a> Parents Until</p><p>获取当前每一个匹配元素集的祖先，不包括匹配元素的本身。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$el</span><span class=p>.</span><span class=nx>parentsUntil</span><span class=p>(</span><span class=nx>selector</span><span class=p>,</span> <span class=nx>filter</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kd>function</span> <span class=nx>parentsUntil</span><span class=p>(</span><span class=nx>el</span><span class=p>,</span> <span class=nx>selector</span><span class=p>,</span> <span class=nx>filter</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>result</span> <span class=o>=</span> <span class=p>[];</span>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>matchesSelector</span> <span class=o>=</span> <span class=nx>el</span><span class=p>.</span><span class=nx>matches</span> <span class=o>||</span> <span class=nx>el</span><span class=p>.</span><span class=nx>webkitMatchesSelector</span> <span class=o>||</span> <span class=nx>el</span><span class=p>.</span><span class=nx>mozMatchesSelector</span> <span class=o>||</span> <span class=nx>el</span><span class=p>.</span><span class=nx>msMatchesSelector</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=c1>// match start from parent
+</span></span></span><span class=line><span class=cl><span class=c1></span>  <span class=nx>el</span> <span class=o>=</span> <span class=nx>el</span><span class=p>.</span><span class=nx>parentElement</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=k>while</span> <span class=p>(</span><span class=nx>el</span> <span class=o>&amp;&amp;</span> <span class=o>!</span><span class=nx>matchesSelector</span><span class=p>.</span><span class=nx>call</span><span class=p>(</span><span class=nx>el</span><span class=p>,</span> <span class=nx>selector</span><span class=p>))</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=p>(</span><span class=o>!</span><span class=nx>filter</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nx>result</span><span class=p>.</span><span class=nx>push</span><span class=p>(</span><span class=nx>el</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=k>if</span> <span class=p>(</span><span class=nx>matchesSelector</span><span class=p>.</span><span class=nx>call</span><span class=p>(</span><span class=nx>el</span><span class=p>,</span> <span class=nx>filter</span><span class=p>))</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nx>result</span><span class=p>.</span><span class=nx>push</span><span class=p>(</span><span class=nx>el</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>      <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=nx>el</span> <span class=o>=</span> <span class=nx>el</span><span class=p>.</span><span class=nx>parentElement</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=nx>result</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div></li><li><p><a href=#1.8 rel>1.8</a> Form</p><ul><li><p>Input/Textarea</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$</span><span class=p>(</span><span class=s1>&#39;#my-input&#39;</span><span class=p>).</span><span class=nx>val</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nb>document</span><span class=p>.</span><span class=nx>querySelector</span><span class=p>(</span><span class=s1>&#39;#my-input&#39;</span><span class=p>).</span><span class=nx>value</span><span class=p>;</span>
+</span></span></code></pre></td></tr></table></div></div></li><li><p>获取 e.currentTarget 在 <code>.radio</code> 中的数组索引</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$</span><span class=p>(</span><span class=s1>&#39;.radio&#39;</span><span class=p>).</span><span class=nx>index</span><span class=p>(</span><span class=nx>e</span><span class=p>.</span><span class=nx>currentTarget</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nb>Array</span><span class=p>.</span><span class=nx>prototype</span><span class=p>.</span><span class=nx>indexOf</span><span class=p>.</span><span class=nx>call</span><span class=p>(</span><span class=nb>document</span><span class=p>.</span><span class=nx>querySelectorAll</span><span class=p>(</span><span class=s1>&#39;.radio&#39;</span><span class=p>),</span> <span class=nx>e</span><span class=p>.</span><span class=nx>currentTarget</span><span class=p>);</span>
+</span></span></code></pre></td></tr></table></div></div></li></ul></li><li><p><a href=#1.9 rel>1.9</a> Iframe Contents</p><p>jQuery 对象的 iframe <code>contents()</code> 返回的是 iframe 内的 <code>document</code></p><ul><li><p>Iframe contents</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$iframe</span><span class=p>.</span><span class=nx>contents</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>iframe</span><span class=p>.</span><span class=nx>contentDocument</span><span class=p>;</span>
+</span></span></code></pre></td></tr></table></div></div></li><li><p>Iframe Query</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$iframe</span><span class=p>.</span><span class=nx>contents</span><span class=p>().</span><span class=nx>find</span><span class=p>(</span><span class=s1>&#39;.css&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>iframe</span><span class=p>.</span><span class=nx>contentDocument</span><span class=p>.</span><span class=nx>querySelectorAll</span><span class=p>(</span><span class=s1>&#39;.css&#39;</span><span class=p>);</span>
+</span></span></code></pre></td></tr></table></div></div></li></ul></li><li><p><a href=#1.10 rel>1.10</a> 获取 body</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$</span><span class=p>(</span><span class=s1>&#39;body&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nb>document</span><span class=p>.</span><span class=nx>body</span><span class=p>;</span>
+</span></span></code></pre></td></tr></table></div></div></li><li><p><a href=#1.11 rel>1.11</a> 获取或设置属性</p><ul><li><p>获取属性</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$el</span><span class=p>.</span><span class=nx>attr</span><span class=p>(</span><span class=s1>&#39;foo&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>el</span><span class=p>.</span><span class=nx>getAttribute</span><span class=p>(</span><span class=s1>&#39;foo&#39;</span><span class=p>);</span>
+</span></span></code></pre></td></tr></table></div></div></li><li><p>设置属性</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery, note that this works in memory without change the DOM
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$el</span><span class=p>.</span><span class=nx>attr</span><span class=p>(</span><span class=s1>&#39;foo&#39;</span><span class=p>,</span> <span class=s1>&#39;bar&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>el</span><span class=p>.</span><span class=nx>setAttribute</span><span class=p>(</span><span class=s1>&#39;foo&#39;</span><span class=p>,</span> <span class=s1>&#39;bar&#39;</span><span class=p>);</span>
+</span></span></code></pre></td></tr></table></div></div></li><li><p>获取 <code>data-</code> 属性</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$el</span><span class=p>.</span><span class=nx>data</span><span class=p>(</span><span class=s1>&#39;foo&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native (use `getAttribute`)
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>el</span><span class=p>.</span><span class=nx>getAttribute</span><span class=p>(</span><span class=s1>&#39;data-foo&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native (use `dataset` if only need to support IE 11+)
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>el</span><span class=p>.</span><span class=nx>dataset</span><span class=p>[</span><span class=s1>&#39;foo&#39;</span><span class=p>];</span>
+</span></span></code></pre></td></tr></table></div></div></li></ul></li></ul><p><strong><a href=#%e7%9b%ae%e5%bd%95 rel>⬆ 回到顶部</a></strong></p><h2 id=css--style>CSS & Style</h2><ul><li><p><a href=#2.1 rel>2.1</a> CSS</p><ul><li><p>Get style</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$el</span><span class=p>.</span><span class=nx>css</span><span class=p>(</span><span class=s2>&#34;color&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1>// 注意：此处为了解决当 style 值为 auto 时，返回 auto 的问题
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kr>const</span> <span class=nx>win</span> <span class=o>=</span> <span class=nx>el</span><span class=p>.</span><span class=nx>ownerDocument</span><span class=p>.</span><span class=nx>defaultView</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// null 的意思是不返回伪类元素
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>win</span><span class=p>.</span><span class=nx>getComputedStyle</span><span class=p>(</span><span class=nx>el</span><span class=p>,</span> <span class=kc>null</span><span class=p>).</span><span class=nx>color</span><span class=p>;</span>
+</span></span></code></pre></td></tr></table></div></div></li><li><p>Set style</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$el</span><span class=p>.</span><span class=nx>css</span><span class=p>({</span> <span class=nx>color</span><span class=o>:</span> <span class=s2>&#34;#ff0011&#34;</span> <span class=p>});</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>el</span><span class=p>.</span><span class=nx>style</span><span class=p>.</span><span class=nx>color</span> <span class=o>=</span> <span class=s1>&#39;#ff0011&#39;</span><span class=p>;</span>
+</span></span></code></pre></td></tr></table></div></div></li><li><p>Get/Set Styles</p><p>注意，如果想一次设置多个 style，可以参考 oui-dom-utils 中 <a href=https://github.com/oneuijs/oui-dom-utils/blob/master/src/index.js#L194 target=_blank rel="noopener noreffer">setStyles</a> 方法</p></li><li><p>Add class</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$el</span><span class=p>.</span><span class=nx>addClass</span><span class=p>(</span><span class=nx>className</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>el</span><span class=p>.</span><span class=nx>classList</span><span class=p>.</span><span class=nx>add</span><span class=p>(</span><span class=nx>className</span><span class=p>);</span>
+</span></span></code></pre></td></tr></table></div></div></li><li><p>Remove class</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$el</span><span class=p>.</span><span class=nx>removeClass</span><span class=p>(</span><span class=nx>className</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>el</span><span class=p>.</span><span class=nx>classList</span><span class=p>.</span><span class=nx>remove</span><span class=p>(</span><span class=nx>className</span><span class=p>);</span>
+</span></span></code></pre></td></tr></table></div></div></li><li><p>has class</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$el</span><span class=p>.</span><span class=nx>hasClass</span><span class=p>(</span><span class=nx>className</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>el</span><span class=p>.</span><span class=nx>classList</span><span class=p>.</span><span class=nx>contains</span><span class=p>(</span><span class=nx>className</span><span class=p>);</span>
+</span></span></code></pre></td></tr></table></div></div></li><li><p>Toggle class</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$el</span><span class=p>.</span><span class=nx>toggleClass</span><span class=p>(</span><span class=nx>className</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>el</span><span class=p>.</span><span class=nx>classList</span><span class=p>.</span><span class=nx>toggle</span><span class=p>(</span><span class=nx>className</span><span class=p>);</span>
+</span></span></code></pre></td></tr></table></div></div></li></ul></li><li><p><a href=#2.2 rel>2.2</a> Width & Height</p><p>Width 与 Height 获取方法相同，下面以 Height 为例：</p><ul><li><p>Window height</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// window height
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$</span><span class=p>(</span><span class=nb>window</span><span class=p>).</span><span class=nx>height</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// 不含 scrollbar，与 jQuery 行为一致
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nb>window</span><span class=p>.</span><span class=nb>document</span><span class=p>.</span><span class=nx>documentElement</span><span class=p>.</span><span class=nx>clientHeight</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// 含 scrollbar
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nb>window</span><span class=p>.</span><span class=nx>innerHeight</span><span class=p>;</span>
+</span></span></code></pre></td></tr></table></div></div></li><li><p>Document height</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$</span><span class=p>(</span><span class=nb>document</span><span class=p>).</span><span class=nx>height</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kr>const</span> <span class=nx>body</span> <span class=o>=</span> <span class=nb>document</span><span class=p>.</span><span class=nx>body</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>html</span> <span class=o>=</span> <span class=nb>document</span><span class=p>.</span><span class=nx>documentElement</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>height</span> <span class=o>=</span> <span class=nb>Math</span><span class=p>.</span><span class=nx>max</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>  <span class=nx>body</span><span class=p>.</span><span class=nx>offsetHeight</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nx>body</span><span class=p>.</span><span class=nx>scrollHeight</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nx>html</span><span class=p>.</span><span class=nx>clientHeight</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nx>html</span><span class=p>.</span><span class=nx>offsetHeight</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nx>html</span><span class=p>.</span><span class=nx>scrollHeight</span>
+</span></span><span class=line><span class=cl><span class=p>);</span>
+</span></span></code></pre></td></tr></table></div></div></li><li><p>Element height</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$el</span><span class=p>.</span><span class=nx>height</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kd>function</span> <span class=nx>getHeight</span><span class=p>(</span><span class=nx>el</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>styles</span> <span class=o>=</span> <span class=k>this</span><span class=p>.</span><span class=nx>getComputedStyle</span><span class=p>(</span><span class=nx>el</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>height</span> <span class=o>=</span> <span class=nx>el</span><span class=p>.</span><span class=nx>offsetHeight</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>borderTopWidth</span> <span class=o>=</span> <span class=nb>parseFloat</span><span class=p>(</span><span class=nx>styles</span><span class=p>.</span><span class=nx>borderTopWidth</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>borderBottomWidth</span> <span class=o>=</span> <span class=nb>parseFloat</span><span class=p>(</span><span class=nx>styles</span><span class=p>.</span><span class=nx>borderBottomWidth</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>paddingTop</span> <span class=o>=</span> <span class=nb>parseFloat</span><span class=p>(</span><span class=nx>styles</span><span class=p>.</span><span class=nx>paddingTop</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>paddingBottom</span> <span class=o>=</span> <span class=nb>parseFloat</span><span class=p>(</span><span class=nx>styles</span><span class=p>.</span><span class=nx>paddingBottom</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=nx>height</span> <span class=o>-</span> <span class=nx>borderBottomWidth</span> <span class=o>-</span> <span class=nx>borderTopWidth</span> <span class=o>-</span> <span class=nx>paddingTop</span> <span class=o>-</span> <span class=nx>paddingBottom</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// 精确到整数（border-box 时为 height - border 值，content-box 时为 height + padding 值）
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>el</span><span class=p>.</span><span class=nx>clientHeight</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// 精确到小数（border-box 时为 height 值，content-box 时为 height + padding + border 值）
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>el</span><span class=p>.</span><span class=nx>getBoundingClientRect</span><span class=p>().</span><span class=nx>height</span><span class=p>;</span>
+</span></span></code></pre></td></tr></table></div></div></li></ul></li><li><p><a href=#2.3 rel>2.3</a> Position & Offset</p><ul><li><p>Position</p><p>获得匹配元素相对父元素的偏移</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$el</span><span class=p>.</span><span class=nx>position</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>{</span> <span class=nx>left</span><span class=o>:</span> <span class=nx>el</span><span class=p>.</span><span class=nx>offsetLeft</span><span class=p>,</span> <span class=nx>top</span><span class=o>:</span> <span class=nx>el</span><span class=p>.</span><span class=nx>offsetTop</span> <span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div></li><li><p>Offset</p><p>获得匹配元素相对文档的偏移</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$el</span><span class=p>.</span><span class=nx>offset</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kd>function</span> <span class=nx>getOffset</span> <span class=p>(</span><span class=nx>el</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>box</span> <span class=o>=</span> <span class=nx>el</span><span class=p>.</span><span class=nx>getBoundingClientRect</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>top</span><span class=o>:</span> <span class=nx>box</span><span class=p>.</span><span class=nx>top</span> <span class=o>+</span> <span class=nb>window</span><span class=p>.</span><span class=nx>pageYOffset</span> <span class=o>-</span> <span class=nb>document</span><span class=p>.</span><span class=nx>documentElement</span><span class=p>.</span><span class=nx>clientTop</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nx>left</span><span class=o>:</span> <span class=nx>box</span><span class=p>.</span><span class=nx>left</span> <span class=o>+</span> <span class=nb>window</span><span class=p>.</span><span class=nx>pageXOffset</span> <span class=o>-</span> <span class=nb>document</span><span class=p>.</span><span class=nx>documentElement</span><span class=p>.</span><span class=nx>clientLeft</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div></li></ul></li><li><p><a href=#2.4 rel>2.4</a> Scroll Top</p><p>获取元素滚动条垂直位置。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$</span><span class=p>(</span><span class=nb>window</span><span class=p>).</span><span class=nx>scrollTop</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>(</span><span class=nb>document</span><span class=p>.</span><span class=nx>documentElement</span> <span class=o>&amp;&amp;</span> <span class=nb>document</span><span class=p>.</span><span class=nx>documentElement</span><span class=p>.</span><span class=nx>scrollTop</span><span class=p>)</span> <span class=o>||</span> <span class=nb>document</span><span class=p>.</span><span class=nx>body</span><span class=p>.</span><span class=nx>scrollTop</span><span class=p>;</span>
+</span></span></code></pre></td></tr></table></div></div></li></ul><p><strong><a href=#%e7%9b%ae%e5%bd%95 rel>⬆ 回到顶部</a></strong></p><h2 id=dom-操作>DOM 操作</h2><ul><li><p><a href=#3.1 rel>3.1</a> Remove</p><p>从 DOM 中移除元素。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$el</span><span class=p>.</span><span class=nx>remove</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>el</span><span class=p>.</span><span class=nx>parentNode</span><span class=p>.</span><span class=nx>removeChild</span><span class=p>(</span><span class=nx>el</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native - Only latest, NO IE
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>el</span><span class=p>.</span><span class=nx>remove</span><span class=p>();</span>
+</span></span></code></pre></td></tr></table></div></div></li><li><p><a href=#3.2 rel>3.2</a> Text</p><ul><li><p>Get text</p><p>返回指定元素及其后代的文本内容。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$el</span><span class=p>.</span><span class=nx>text</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>el</span><span class=p>.</span><span class=nx>textContent</span><span class=p>;</span>
+</span></span></code></pre></td></tr></table></div></div></li><li><p>Set text</p><p>设置元素的文本内容。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$el</span><span class=p>.</span><span class=nx>text</span><span class=p>(</span><span class=nx>string</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>el</span><span class=p>.</span><span class=nx>textContent</span> <span class=o>=</span> <span class=nx>string</span><span class=p>;</span>
+</span></span></code></pre></td></tr></table></div></div></li></ul></li><li><p><a href=#3.3 rel>3.3</a> HTML</p><ul><li><p>Get HTML</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$el</span><span class=p>.</span><span class=nx>html</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>el</span><span class=p>.</span><span class=nx>innerHTML</span><span class=p>;</span>
+</span></span></code></pre></td></tr></table></div></div></li><li><p>Set HTML</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$el</span><span class=p>.</span><span class=nx>html</span><span class=p>(</span><span class=nx>htmlString</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>el</span><span class=p>.</span><span class=nx>innerHTML</span> <span class=o>=</span> <span class=nx>htmlString</span><span class=p>;</span>
+</span></span></code></pre></td></tr></table></div></div></li></ul></li><li><p><a href=#3.4 rel>3.4</a> Append</p><p>Append 插入到子节点的末尾</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$el</span><span class=p>.</span><span class=nx>append</span><span class=p>(</span><span class=s2>&#34;&lt;div id=&#39;container&#39;&gt;hello&lt;/div&gt;&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native (HTML string)
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>el</span><span class=p>.</span><span class=nx>insertAdjacentHTML</span><span class=p>(</span><span class=s1>&#39;beforeend&#39;</span><span class=p>,</span> <span class=s1>&#39;&lt;div id=&#34;container&#34;&gt;Hello World&lt;/div&gt;&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native (Element)
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>el</span><span class=p>.</span><span class=nx>appendChild</span><span class=p>(</span><span class=nx>newEl</span><span class=p>);</span>
+</span></span></code></pre></td></tr></table></div></div></li><li><p><a href=#3.5 rel>3.5</a> Prepend</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$el</span><span class=p>.</span><span class=nx>prepend</span><span class=p>(</span><span class=s2>&#34;&lt;div id=&#39;container&#39;&gt;hello&lt;/div&gt;&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native (HTML string)
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>el</span><span class=p>.</span><span class=nx>insertAdjacentHTML</span><span class=p>(</span><span class=s1>&#39;afterbegin&#39;</span><span class=p>,</span> <span class=s1>&#39;&lt;div id=&#34;container&#34;&gt;Hello World&lt;/div&gt;&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native (Element)
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>el</span><span class=p>.</span><span class=nx>insertBefore</span><span class=p>(</span><span class=nx>newEl</span><span class=p>,</span> <span class=nx>el</span><span class=p>.</span><span class=nx>firstChild</span><span class=p>);</span>
+</span></span></code></pre></td></tr></table></div></div></li><li><p><a href=#3.6 rel>3.6</a> insertBefore</p><p>在选中元素前插入新节点</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$newEl</span><span class=p>.</span><span class=nx>insertBefore</span><span class=p>(</span><span class=nx>queryString</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native (HTML string)
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>el</span><span class=p>.</span><span class=nx>insertAdjacentHTML</span><span class=p>(</span><span class=s1>&#39;beforebegin &#39;</span><span class=p>,</span> <span class=s1>&#39;&lt;div id=&#34;container&#34;&gt;Hello World&lt;/div&gt;&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native (Element)
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kr>const</span> <span class=nx>el</span> <span class=o>=</span> <span class=nb>document</span><span class=p>.</span><span class=nx>querySelector</span><span class=p>(</span><span class=nx>selector</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=p>(</span><span class=nx>el</span><span class=p>.</span><span class=nx>parentNode</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nx>el</span><span class=p>.</span><span class=nx>parentNode</span><span class=p>.</span><span class=nx>insertBefore</span><span class=p>(</span><span class=nx>newEl</span><span class=p>,</span> <span class=nx>el</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div></li><li><p><a href=#3.7 rel>3.7</a> insertAfter</p><p>在选中元素后插入新节点</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$newEl</span><span class=p>.</span><span class=nx>insertAfter</span><span class=p>(</span><span class=nx>queryString</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native (HTML string)
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>el</span><span class=p>.</span><span class=nx>insertAdjacentHTML</span><span class=p>(</span><span class=s1>&#39;afterend&#39;</span><span class=p>,</span> <span class=s1>&#39;&lt;div id=&#34;container&#34;&gt;Hello World&lt;/div&gt;&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native (Element)
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kr>const</span> <span class=nx>el</span> <span class=o>=</span> <span class=nb>document</span><span class=p>.</span><span class=nx>querySelector</span><span class=p>(</span><span class=nx>selector</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=p>(</span><span class=nx>el</span><span class=p>.</span><span class=nx>parentNode</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nx>el</span><span class=p>.</span><span class=nx>parentNode</span><span class=p>.</span><span class=nx>insertBefore</span><span class=p>(</span><span class=nx>newEl</span><span class=p>,</span> <span class=nx>el</span><span class=p>.</span><span class=nx>nextSibling</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div></li><li><p><a href=#3.8 rel>3.8</a> is</p><p>如果匹配给定的选择器，返回true</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$el</span><span class=p>.</span><span class=nx>is</span><span class=p>(</span><span class=nx>selector</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>el</span><span class=p>.</span><span class=nx>matches</span><span class=p>(</span><span class=nx>selector</span><span class=p>);</span>
+</span></span></code></pre></td></tr></table></div></div></li><li><p><a href=#3.9 rel>3.9</a> clone</p><p>深拷贝被选元素。（生成被选元素的副本，包含子节点、文本和属性。）</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>//jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$el</span><span class=p>.</span><span class=nx>clone</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>//Native
+</span></span></span><span class=line><span class=cl><span class=c1>//深拷贝添加参数&#39;true&#39;
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>el</span><span class=p>.</span><span class=nx>cloneNode</span><span class=p>();</span>
+</span></span></code></pre></td></tr></table></div></div></li><li><p><a href=#3.10 rel>3.10</a> empty</p><p>移除所有子节点</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>//jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$el</span><span class=p>.</span><span class=nx>empty</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>//Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>el</span><span class=p>.</span><span class=nx>innerHTML</span> <span class=o>=</span> <span class=s1>&#39;&#39;</span><span class=p>;</span>
+</span></span></code></pre></td></tr></table></div></div></li><li><p><a href=#3.11 rel>3.11</a> wrap</p><p>把每个被选元素放置在指定的HTML结构中。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>//jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$</span><span class=p>(</span><span class=s2>&#34;.inner&#34;</span><span class=p>).</span><span class=nx>wrap</span><span class=p>(</span><span class=s1>&#39;&lt;div class=&#34;wrapper&#34;&gt;&lt;/div&gt;&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>//Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nb>Array</span><span class=p>.</span><span class=nx>from</span><span class=p>(</span><span class=nb>document</span><span class=p>.</span><span class=nx>querySelectorAll</span><span class=p>(</span><span class=s1>&#39;.inner&#39;</span><span class=p>)).</span><span class=nx>forEach</span><span class=p>((</span><span class=nx>el</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>wrapper</span> <span class=o>=</span> <span class=nb>document</span><span class=p>.</span><span class=nx>createElement</span><span class=p>(</span><span class=s1>&#39;div&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>  <span class=nx>wrapper</span><span class=p>.</span><span class=nx>className</span> <span class=o>=</span> <span class=s1>&#39;wrapper&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=nx>el</span><span class=p>.</span><span class=nx>parentNode</span><span class=p>.</span><span class=nx>insertBefore</span><span class=p>(</span><span class=nx>wrapper</span><span class=p>,</span> <span class=nx>el</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>  <span class=nx>el</span><span class=p>.</span><span class=nx>parentNode</span><span class=p>.</span><span class=nx>removeChild</span><span class=p>(</span><span class=nx>el</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>  <span class=nx>wrapper</span><span class=p>.</span><span class=nx>appendChild</span><span class=p>(</span><span class=nx>el</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>});</span>
+</span></span></code></pre></td></tr></table></div></div></li><li><p><a href=#3.12 rel>3.12</a> unwrap</p><p>移除被选元素的父元素的DOM结构</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$</span><span class=p>(</span><span class=s1>&#39;.inner&#39;</span><span class=p>).</span><span class=nx>unwrap</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nb>Array</span><span class=p>.</span><span class=nx>prototype</span><span class=p>.</span><span class=nx>forEach</span><span class=p>.</span><span class=nx>call</span><span class=p>(</span><span class=nb>document</span><span class=p>.</span><span class=nx>querySelectorAll</span><span class=p>(</span><span class=s1>&#39;.inner&#39;</span><span class=p>),</span> <span class=p>(</span><span class=nx>el</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=kd>let</span> <span class=nx>elParentNode</span> <span class=o>=</span> <span class=nx>el</span><span class=p>.</span><span class=nx>parentNode</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>      <span class=k>if</span><span class=p>(</span><span class=nx>elParentNode</span> <span class=o>!==</span> <span class=nb>document</span><span class=p>.</span><span class=nx>body</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>          <span class=nx>elParentNode</span><span class=p>.</span><span class=nx>parentNode</span><span class=p>.</span><span class=nx>insertBefore</span><span class=p>(</span><span class=nx>el</span><span class=p>,</span> <span class=nx>elParentNode</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>          <span class=nx>elParentNode</span><span class=p>.</span><span class=nx>parentNode</span><span class=p>.</span><span class=nx>removeChild</span><span class=p>(</span><span class=nx>elParentNode</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>      <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>});</span>
+</span></span></code></pre></td></tr></table></div></div></li><li><p><a href=#3.13 rel>3.13</a> replaceWith</p><p>用指定的元素替换被选的元素</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>//jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$</span><span class=p>(</span><span class=s1>&#39;.inner&#39;</span><span class=p>).</span><span class=nx>replaceWith</span><span class=p>(</span><span class=s1>&#39;&lt;div class=&#34;outer&#34;&gt;&lt;/div&gt;&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>//Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nb>Array</span><span class=p>.</span><span class=nx>prototype</span><span class=p>.</span><span class=nx>forEach</span><span class=p>.</span><span class=nx>call</span><span class=p>(</span><span class=nb>document</span><span class=p>.</span><span class=nx>querySelectorAll</span><span class=p>(</span><span class=s1>&#39;.inner&#39;</span><span class=p>),(</span><span class=nx>el</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>outer</span> <span class=o>=</span> <span class=nb>document</span><span class=p>.</span><span class=nx>createElement</span><span class=p>(</span><span class=s2>&#34;div&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>  <span class=nx>outer</span><span class=p>.</span><span class=nx>className</span> <span class=o>=</span> <span class=s2>&#34;outer&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=nx>el</span><span class=p>.</span><span class=nx>parentNode</span><span class=p>.</span><span class=nx>insertBefore</span><span class=p>(</span><span class=nx>outer</span><span class=p>,</span> <span class=nx>el</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>  <span class=nx>el</span><span class=p>.</span><span class=nx>parentNode</span><span class=p>.</span><span class=nx>removeChild</span><span class=p>(</span><span class=nx>el</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>});</span>
+</span></span></code></pre></td></tr></table></div></div></li><li><p><a href=#3.14 rel>3.14</a> simple parse</p><p>解析 HTML/SVG/XML 字符串</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$</span><span class=p>(</span><span class=sb>`&lt;ol&gt;
+</span></span></span><span class=line><span class=cl><span class=sb>  &lt;li&gt;a&lt;/li&gt;
+</span></span></span><span class=line><span class=cl><span class=sb>  &lt;li&gt;b&lt;/li&gt;
+</span></span></span><span class=line><span class=cl><span class=sb>&lt;/ol&gt;
+</span></span></span><span class=line><span class=cl><span class=sb>&lt;ol&gt;
+</span></span></span><span class=line><span class=cl><span class=sb>  &lt;li&gt;c&lt;/li&gt;
+</span></span></span><span class=line><span class=cl><span class=sb>  &lt;li&gt;d&lt;/li&gt;
+</span></span></span><span class=line><span class=cl><span class=sb>&lt;/ol&gt;`</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>range</span> <span class=o>=</span> <span class=nb>document</span><span class=p>.</span><span class=nx>createRange</span><span class=p>();</span>
+</span></span><span class=line><span class=cl><span class=nx>parse</span> <span class=o>=</span> <span class=nx>range</span><span class=p>.</span><span class=nx>createContextualFragment</span><span class=p>.</span><span class=nx>bind</span><span class=p>(</span><span class=nx>range</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>parse</span><span class=p>(</span><span class=sb>`&lt;ol&gt;
+</span></span></span><span class=line><span class=cl><span class=sb>  &lt;li&gt;a&lt;/li&gt;
+</span></span></span><span class=line><span class=cl><span class=sb>  &lt;li&gt;b&lt;/li&gt;
+</span></span></span><span class=line><span class=cl><span class=sb>&lt;/ol&gt;
+</span></span></span><span class=line><span class=cl><span class=sb>&lt;ol&gt;
+</span></span></span><span class=line><span class=cl><span class=sb>  &lt;li&gt;c&lt;/li&gt;
+</span></span></span><span class=line><span class=cl><span class=sb>  &lt;li&gt;d&lt;/li&gt;
+</span></span></span><span class=line><span class=cl><span class=sb>&lt;/ol&gt;`</span><span class=p>);</span>
+</span></span></code></pre></td></tr></table></div></div></li></ul><p><strong><a href=#%e7%9b%ae%e5%bd%95 rel>⬆ 回到顶部</a></strong></p><h2 id=ajax>Ajax</h2><p><a href=https://fetch.spec.whatwg.org/ target=_blank rel="noopener noreffer">Fetch API</a> 是用于替换 XMLHttpRequest 处理 ajax 的新标准，Chrome 和 Firefox 均支持，旧浏览器可以使用 polyfills 提供支持。</p><p>IE9+ 请使用 <a href=http://github.com/github/fetch target=_blank rel="noopener noreffer">github/fetch</a>，IE8+ 请使用 <a href=https://github.com/camsong/fetch-ie8/ target=_blank rel="noopener noreffer">fetch-ie8</a>，JSONP 请使用 <a href=https://github.com/camsong/fetch-jsonp target=_blank rel="noopener noreffer">fetch-jsonp</a>。</p><ul><li><p><a href=#4.1 rel>4.1</a> 从服务器读取数据并替换匹配元素的内容。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$</span><span class=p>(</span><span class=nx>selector</span><span class=p>).</span><span class=nx>load</span><span class=p>(</span><span class=nx>url</span><span class=p>,</span> <span class=nx>completeCallback</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>fetch</span><span class=p>(</span><span class=nx>url</span><span class=p>).</span><span class=nx>then</span><span class=p>(</span><span class=nx>data</span> <span class=p>=&gt;</span> <span class=nx>data</span><span class=p>.</span><span class=nx>text</span><span class=p>()).</span><span class=nx>then</span><span class=p>(</span><span class=nx>data</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nb>document</span><span class=p>.</span><span class=nx>querySelector</span><span class=p>(</span><span class=nx>selector</span><span class=p>).</span><span class=nx>innerHTML</span> <span class=o>=</span> <span class=nx>data</span>
+</span></span><span class=line><span class=cl><span class=p>}).</span><span class=nx>then</span><span class=p>(</span><span class=nx>completeCallback</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div></li></ul><p><strong><a href=#%e7%9b%ae%e5%bd%95 rel>⬆ 回到顶部</a></strong></p><h2 id=事件>事件</h2><p>完整地替代命名空间和事件代理，链接到 <a href=https://github.com/oneuijs/oui-dom-events target=_blank rel="noopener noreffer">https://github.com/oneuijs/oui-dom-events</a></p><ul><li><p><a href=#5.0 rel>5.0</a> Document ready by <code>DOMContentLoaded</code></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$</span><span class=p>(</span><span class=nb>document</span><span class=p>).</span><span class=nx>ready</span><span class=p>(</span><span class=nx>eventHandler</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1>// 检测 DOMContentLoaded 是否已完成
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=k>if</span> <span class=p>(</span><span class=nb>document</span><span class=p>.</span><span class=nx>readyState</span> <span class=o>!==</span> <span class=s1>&#39;loading&#39;</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nx>eventHandler</span><span class=p>();</span>
+</span></span><span class=line><span class=cl><span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nb>document</span><span class=p>.</span><span class=nx>addEventListener</span><span class=p>(</span><span class=s1>&#39;DOMContentLoaded&#39;</span><span class=p>,</span> <span class=nx>eventHandler</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div></li><li><p><a href=#5.1 rel>5.1</a> 使用 on 绑定事件</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$el</span><span class=p>.</span><span class=nx>on</span><span class=p>(</span><span class=nx>eventName</span><span class=p>,</span> <span class=nx>eventHandler</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>el</span><span class=p>.</span><span class=nx>addEventListener</span><span class=p>(</span><span class=nx>eventName</span><span class=p>,</span> <span class=nx>eventHandler</span><span class=p>);</span>
+</span></span></code></pre></td></tr></table></div></div></li><li><p><a href=#5.2 rel>5.2</a> 使用 off 解绑事件</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$el</span><span class=p>.</span><span class=nx>off</span><span class=p>(</span><span class=nx>eventName</span><span class=p>,</span> <span class=nx>eventHandler</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>el</span><span class=p>.</span><span class=nx>removeEventListener</span><span class=p>(</span><span class=nx>eventName</span><span class=p>,</span> <span class=nx>eventHandler</span><span class=p>);</span>
+</span></span></code></pre></td></tr></table></div></div></li><li><p><a href=#5.3 rel>5.3</a> Trigger</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$</span><span class=p>(</span><span class=nx>el</span><span class=p>).</span><span class=nx>trigger</span><span class=p>(</span><span class=s1>&#39;custom-event&#39;</span><span class=p>,</span> <span class=p>{</span><span class=nx>key1</span><span class=o>:</span> <span class=s1>&#39;data&#39;</span><span class=p>});</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=k>if</span> <span class=p>(</span><span class=nb>window</span><span class=p>.</span><span class=nx>CustomEvent</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>event</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>CustomEvent</span><span class=p>(</span><span class=s1>&#39;custom-event&#39;</span><span class=p>,</span> <span class=p>{</span><span class=nx>detail</span><span class=o>:</span> <span class=p>{</span><span class=nx>key1</span><span class=o>:</span> <span class=s1>&#39;data&#39;</span><span class=p>}});</span>
+</span></span><span class=line><span class=cl><span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>event</span> <span class=o>=</span> <span class=nb>document</span><span class=p>.</span><span class=nx>createEvent</span><span class=p>(</span><span class=s1>&#39;CustomEvent&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>  <span class=nx>event</span><span class=p>.</span><span class=nx>initCustomEvent</span><span class=p>(</span><span class=s1>&#39;custom-event&#39;</span><span class=p>,</span> <span class=kc>true</span><span class=p>,</span> <span class=kc>true</span><span class=p>,</span> <span class=p>{</span><span class=nx>key1</span><span class=o>:</span> <span class=s1>&#39;data&#39;</span><span class=p>});</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>el</span><span class=p>.</span><span class=nx>dispatchEvent</span><span class=p>(</span><span class=nx>event</span><span class=p>);</span>
+</span></span></code></pre></td></tr></table></div></div></li></ul><p><strong><a href=#%e7%9b%ae%e5%bd%95 rel>⬆ 回到顶部</a></strong></p><h2 id=实用工具>实用工具</h2><p>大部分实用工具都能在 native API 中找到. 其他高级功能可以选用专注于该领域的稳定性和性能都更好的库来代替，推荐 <a href=https://lodash.com target=_blank rel="noopener noreffer">lodash</a>。</p><ul><li><p><a href=#6.1 rel>6.1</a> 基本工具</p><ul><li>isArray</li></ul><p>检测参数是不是数组。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$</span><span class=p>.</span><span class=nx>isArray</span><span class=p>(</span><span class=nx>range</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nb>Array</span><span class=p>.</span><span class=nx>isArray</span><span class=p>(</span><span class=nx>range</span><span class=p>);</span>
+</span></span></code></pre></td></tr></table></div></div><ul><li>isWindow</li></ul><p>检测参数是不是 window。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$</span><span class=p>.</span><span class=nx>isWindow</span><span class=p>(</span><span class=nx>obj</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kd>function</span> <span class=nx>isWindow</span><span class=p>(</span><span class=nx>obj</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=nx>obj</span> <span class=o>!==</span> <span class=kc>null</span> <span class=o>&amp;&amp;</span> <span class=nx>obj</span> <span class=o>!==</span> <span class=kc>undefined</span> <span class=o>&amp;&amp;</span> <span class=nx>obj</span> <span class=o>===</span> <span class=nx>obj</span><span class=p>.</span><span class=nb>window</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><ul><li>inArray</li></ul><p>在数组中搜索指定值并返回索引 (找不到则返回 -1)。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$</span><span class=p>.</span><span class=nx>inArray</span><span class=p>(</span><span class=nx>item</span><span class=p>,</span> <span class=nx>array</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>array</span><span class=p>.</span><span class=nx>indexOf</span><span class=p>(</span><span class=nx>item</span><span class=p>)</span> <span class=o>&gt;</span> <span class=o>-</span><span class=mi>1</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// ES6-way
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>array</span><span class=p>.</span><span class=nx>includes</span><span class=p>(</span><span class=nx>item</span><span class=p>);</span>
+</span></span></code></pre></td></tr></table></div></div><ul><li>isNumeric</li></ul><p>检测传入的参数是不是数字。
+Use <code>typeof</code> to decide the type or the <code>type</code> example for better accuracy.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$</span><span class=p>.</span><span class=nx>isNumeric</span><span class=p>(</span><span class=nx>item</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kd>function</span> <span class=nx>isNumeric</span><span class=p>(</span><span class=nx>value</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=o>!</span><span class=nb>isNaN</span><span class=p>(</span><span class=nb>parseFloat</span><span class=p>(</span><span class=nx>value</span><span class=p>))</span> <span class=o>&amp;&amp;</span> <span class=nb>isFinite</span><span class=p>(</span><span class=nx>value</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><ul><li>isFunction</li></ul><p>检测传入的参数是不是 JavaScript 函数对象。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$</span><span class=p>.</span><span class=nx>isFunction</span><span class=p>(</span><span class=nx>item</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kd>function</span> <span class=nx>isFunction</span><span class=p>(</span><span class=nx>item</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=k>if</span> <span class=p>(</span><span class=k>typeof</span> <span class=nx>item</span> <span class=o>===</span> <span class=s1>&#39;function&#39;</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=kc>true</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=kd>var</span> <span class=nx>type</span> <span class=o>=</span> <span class=nb>Object</span><span class=p>.</span><span class=nx>prototype</span><span class=p>.</span><span class=nx>toString</span><span class=p>(</span><span class=nx>item</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=nx>type</span> <span class=o>===</span> <span class=s1>&#39;[object Function]&#39;</span> <span class=o>||</span> <span class=nx>type</span> <span class=o>===</span> <span class=s1>&#39;[object GeneratorFunction]&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><ul><li>isEmptyObject</li></ul><p>检测对象是否为空 (包括不可枚举属性).</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$</span><span class=p>.</span><span class=nx>isEmptyObject</span><span class=p>(</span><span class=nx>obj</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kd>function</span> <span class=nx>isEmptyObject</span><span class=p>(</span><span class=nx>obj</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=nb>Object</span><span class=p>.</span><span class=nx>keys</span><span class=p>(</span><span class=nx>obj</span><span class=p>).</span><span class=nx>length</span> <span class=o>===</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><ul><li>isPlainObject</li></ul><p>检测是不是扁平对象 (使用 “{}” 或 “new Object” 创建).</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$</span><span class=p>.</span><span class=nx>isPlainObject</span><span class=p>(</span><span class=nx>obj</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kd>function</span> <span class=nx>isPlainObject</span><span class=p>(</span><span class=nx>obj</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=k>if</span> <span class=p>(</span><span class=k>typeof</span> <span class=p>(</span><span class=nx>obj</span><span class=p>)</span> <span class=o>!==</span> <span class=s1>&#39;object&#39;</span> <span class=o>||</span> <span class=nx>obj</span><span class=p>.</span><span class=nx>nodeType</span> <span class=o>||</span> <span class=nx>obj</span> <span class=o>!==</span> <span class=kc>null</span> <span class=o>&amp;&amp;</span> <span class=nx>obj</span> <span class=o>!==</span> <span class=kc>undefined</span> <span class=o>&amp;&amp;</span> <span class=nx>obj</span> <span class=o>===</span> <span class=nx>obj</span><span class=p>.</span><span class=nb>window</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=kc>false</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=k>if</span> <span class=p>(</span><span class=nx>obj</span><span class=p>.</span><span class=nx>constructor</span> <span class=o>&amp;&amp;</span>
+</span></span><span class=line><span class=cl>      <span class=o>!</span><span class=nb>Object</span><span class=p>.</span><span class=nx>prototype</span><span class=p>.</span><span class=nx>hasOwnProperty</span><span class=p>.</span><span class=nx>call</span><span class=p>(</span><span class=nx>obj</span><span class=p>.</span><span class=nx>constructor</span><span class=p>.</span><span class=nx>prototype</span><span class=p>,</span> <span class=s1>&#39;isPrototypeOf&#39;</span><span class=p>))</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=kc>false</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=kc>true</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><ul><li>extend</li></ul><p>合并多个对象的内容到第一个对象。
+object.assign 是 ES6 API，也可以使用 <a href=https://github.com/ljharb/object.assign target=_blank rel="noopener noreffer">polyfill</a>。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$</span><span class=p>.</span><span class=nx>extend</span><span class=p>({},</span> <span class=nx>defaultOpts</span><span class=p>,</span> <span class=nx>opts</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nb>Object</span><span class=p>.</span><span class=nx>assign</span><span class=p>({},</span> <span class=nx>defaultOpts</span><span class=p>,</span> <span class=nx>opts</span><span class=p>);</span>
+</span></span></code></pre></td></tr></table></div></div><ul><li>trim</li></ul><p>移除字符串头尾空白。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$</span><span class=p>.</span><span class=nx>trim</span><span class=p>(</span><span class=nx>string</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>string</span><span class=p>.</span><span class=nx>trim</span><span class=p>();</span>
+</span></span></code></pre></td></tr></table></div></div><ul><li>map</li></ul><p>将数组或对象转化为包含新内容的数组。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$</span><span class=p>.</span><span class=nx>map</span><span class=p>(</span><span class=nx>array</span><span class=p>,</span> <span class=p>(</span><span class=nx>value</span><span class=p>,</span> <span class=nx>index</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl><span class=p>});</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>array</span><span class=p>.</span><span class=nx>map</span><span class=p>((</span><span class=nx>value</span><span class=p>,</span> <span class=nx>index</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl><span class=p>});</span>
+</span></span></code></pre></td></tr></table></div></div><ul><li>each</li></ul><p>轮询函数，可用于平滑的轮询对象和数组。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$</span><span class=p>.</span><span class=nx>each</span><span class=p>(</span><span class=nx>array</span><span class=p>,</span> <span class=p>(</span><span class=nx>index</span><span class=p>,</span> <span class=nx>value</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl><span class=p>});</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>array</span><span class=p>.</span><span class=nx>forEach</span><span class=p>((</span><span class=nx>value</span><span class=p>,</span> <span class=nx>index</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl><span class=p>});</span>
+</span></span></code></pre></td></tr></table></div></div><ul><li>grep</li></ul><p>找到数组中符合过滤函数的元素。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$</span><span class=p>.</span><span class=nx>grep</span><span class=p>(</span><span class=nx>array</span><span class=p>,</span> <span class=p>(</span><span class=nx>value</span><span class=p>,</span> <span class=nx>index</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl><span class=p>});</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>array</span><span class=p>.</span><span class=nx>filter</span><span class=p>((</span><span class=nx>value</span><span class=p>,</span> <span class=nx>index</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl><span class=p>});</span>
+</span></span></code></pre></td></tr></table></div></div><ul><li>type</li></ul><p>检测对象的 JavaScript [Class] 内部类型。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$</span><span class=p>.</span><span class=nx>type</span><span class=p>(</span><span class=nx>obj</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kd>function</span> <span class=nx>type</span><span class=p>(</span><span class=nx>item</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>reTypeOf</span> <span class=o>=</span> <span class=sr>/(?:^\[object\s(.*?)\]$)/</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=nb>Object</span><span class=p>.</span><span class=nx>prototype</span><span class=p>.</span><span class=nx>toString</span><span class=p>.</span><span class=nx>call</span><span class=p>(</span><span class=nx>item</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=p>.</span><span class=nx>replace</span><span class=p>(</span><span class=nx>reTypeOf</span><span class=p>,</span> <span class=s1>&#39;$1&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=p>.</span><span class=nx>toLowerCase</span><span class=p>();</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><ul><li>merge</li></ul><p>合并第二个数组内容到第一个数组。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$</span><span class=p>.</span><span class=nx>merge</span><span class=p>(</span><span class=nx>array1</span><span class=p>,</span> <span class=nx>array2</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1>// 使用 concat，不能去除重复值
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kd>function</span> <span class=nx>merge</span><span class=p>(...</span><span class=nx>args</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=p>[].</span><span class=nx>concat</span><span class=p>(...</span><span class=nx>args</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// ES6，同样不能去除重复值
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>array1</span> <span class=o>=</span> <span class=p>[...</span><span class=nx>array1</span><span class=p>,</span> <span class=p>...</span><span class=nx>array2</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// 使用 Set，可以去除重复值
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kd>function</span> <span class=nx>merge</span><span class=p>(...</span><span class=nx>args</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=nb>Array</span><span class=p>.</span><span class=nx>from</span><span class=p>(</span><span class=k>new</span> <span class=nx>Set</span><span class=p>([].</span><span class=nx>concat</span><span class=p>(...</span><span class=nx>args</span><span class=p>)))</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><ul><li>now</li></ul><p>返回当前时间的数字呈现。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$</span><span class=p>.</span><span class=nx>now</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nb>Date</span><span class=p>.</span><span class=nx>now</span><span class=p>();</span>
+</span></span></code></pre></td></tr></table></div></div><ul><li>proxy</li></ul><p>传入函数并返回一个新函数，该函数绑定指定上下文。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$</span><span class=p>.</span><span class=nx>proxy</span><span class=p>(</span><span class=nx>fn</span><span class=p>,</span> <span class=nx>context</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>fn</span><span class=p>.</span><span class=nx>bind</span><span class=p>(</span><span class=nx>context</span><span class=p>);</span>
+</span></span></code></pre></td></tr></table></div></div><ul><li>makeArray</li></ul><p>类数组对象转化为真正的 JavaScript 数组。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$</span><span class=p>.</span><span class=nx>makeArray</span><span class=p>(</span><span class=nx>arrayLike</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nb>Array</span><span class=p>.</span><span class=nx>prototype</span><span class=p>.</span><span class=nx>slice</span><span class=p>.</span><span class=nx>call</span><span class=p>(</span><span class=nx>arrayLike</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// ES6-way
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nb>Array</span><span class=p>.</span><span class=nx>from</span><span class=p>(</span><span class=nx>arrayLike</span><span class=p>);</span>
+</span></span></code></pre></td></tr></table></div></div></li><li><p><a href=#6.2 rel>6.2</a> 包含</p><p>检测 DOM 元素是不是其他 DOM 元素的后代.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$</span><span class=p>.</span><span class=nx>contains</span><span class=p>(</span><span class=nx>el</span><span class=p>,</span> <span class=nx>child</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>el</span> <span class=o>!==</span> <span class=nx>child</span> <span class=o>&amp;&amp;</span> <span class=nx>el</span><span class=p>.</span><span class=nx>contains</span><span class=p>(</span><span class=nx>child</span><span class=p>);</span>
+</span></span></code></pre></td></tr></table></div></div></li><li><p><a href=#6.3 rel>6.3</a> Globaleval</p><p>全局执行 JavaScript 代码。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$</span><span class=p>.</span><span class=nx>globaleval</span><span class=p>(</span><span class=nx>code</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kd>function</span> <span class=nx>Globaleval</span><span class=p>(</span><span class=nx>code</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>script</span> <span class=o>=</span> <span class=nb>document</span><span class=p>.</span><span class=nx>createElement</span><span class=p>(</span><span class=s1>&#39;script&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>  <span class=nx>script</span><span class=p>.</span><span class=nx>text</span> <span class=o>=</span> <span class=nx>code</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=nb>document</span><span class=p>.</span><span class=nx>head</span><span class=p>.</span><span class=nx>appendChild</span><span class=p>(</span><span class=nx>script</span><span class=p>).</span><span class=nx>parentNode</span><span class=p>.</span><span class=nx>removeChild</span><span class=p>(</span><span class=nx>script</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Use eval, but context of eval is current, context of $.Globaleval is global.
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nb>eval</span><span class=p>(</span><span class=nx>code</span><span class=p>);</span>
+</span></span></code></pre></td></tr></table></div></div></li><li><p><a href=#6.4 rel>6.4</a> 解析</p><ul><li>parseHTML</li></ul><p>解析字符串为 DOM 节点数组.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$</span><span class=p>.</span><span class=nx>parseHTML</span><span class=p>(</span><span class=nx>htmlString</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kd>function</span> <span class=nx>parseHTML</span><span class=p>(</span><span class=nx>string</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>context</span> <span class=o>=</span> <span class=nb>document</span><span class=p>.</span><span class=nx>implementation</span><span class=p>.</span><span class=nx>createHTMLDocument</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=c1>// Set the base href for the created document so any parsed elements with URLs
+</span></span></span><span class=line><span class=cl><span class=c1></span>  <span class=c1>// are based on the document&#39;s URL
+</span></span></span><span class=line><span class=cl><span class=c1></span>  <span class=kr>const</span> <span class=nx>base</span> <span class=o>=</span> <span class=nx>context</span><span class=p>.</span><span class=nx>createElement</span><span class=p>(</span><span class=s1>&#39;base&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>  <span class=nx>base</span><span class=p>.</span><span class=nx>href</span> <span class=o>=</span> <span class=nb>document</span><span class=p>.</span><span class=nx>location</span><span class=p>.</span><span class=nx>href</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=nx>context</span><span class=p>.</span><span class=nx>head</span><span class=p>.</span><span class=nx>appendChild</span><span class=p>(</span><span class=nx>base</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=nx>context</span><span class=p>.</span><span class=nx>body</span><span class=p>.</span><span class=nx>innerHTML</span> <span class=o>=</span> <span class=nx>string</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=nx>context</span><span class=p>.</span><span class=nx>body</span><span class=p>.</span><span class=nx>children</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><ul><li>parseJSON</li></ul><p>传入格式正确的 JSON 字符串并返回 JavaScript 值.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$</span><span class=p>.</span><span class=nx>parseJSON</span><span class=p>(</span><span class=nx>str</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>JSON</span><span class=p>.</span><span class=nx>parse</span><span class=p>(</span><span class=nx>str</span><span class=p>);</span>
+</span></span></code></pre></td></tr></table></div></div></li></ul><p><strong><a href=#%e7%9b%ae%e5%bd%95 rel>⬆ 回到顶部</a></strong></p><h2 id=promises>Promises</h2><p>Promise 代表异步操作的最终结果。jQuery 用它自己的方式处理 promises，原生 JavaScript 遵循 <a href=http://promises-aplus.github.io/promises-spec/ target=_blank rel="noopener noreffer">Promises/A+</a> 标准实现了最小 API 来处理 promises。</p><ul><li><p><a href=#7.1 rel>7.1</a> done, fail, always</p><p><code>done</code> 会在 promise 解决时调用，<code>fail</code> 会在 promise 拒绝时调用，<code>always</code> 总会调用。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$promise</span><span class=p>.</span><span class=nx>done</span><span class=p>(</span><span class=nx>doneCallback</span><span class=p>).</span><span class=nx>fail</span><span class=p>(</span><span class=nx>failCallback</span><span class=p>).</span><span class=nx>always</span><span class=p>(</span><span class=nx>alwaysCallback</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>promise</span><span class=p>.</span><span class=nx>then</span><span class=p>(</span><span class=nx>doneCallback</span><span class=p>,</span> <span class=nx>failCallback</span><span class=p>).</span><span class=nx>then</span><span class=p>(</span><span class=nx>alwaysCallback</span><span class=p>,</span> <span class=nx>alwaysCallback</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div></li><li><p><a href=#7.2 rel>7.2</a> when</p><p><code>when</code> 用于处理多个 promises。当全部 promises 被解决时返回，当任一 promise 被拒绝时拒绝。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$</span><span class=p>.</span><span class=nx>when</span><span class=p>(</span><span class=nx>$promise1</span><span class=p>,</span> <span class=nx>$promise2</span><span class=p>).</span><span class=nx>done</span><span class=p>((</span><span class=nx>promise1Result</span><span class=p>,</span> <span class=nx>promise2Result</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl><span class=p>});</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nb>Promise</span><span class=p>.</span><span class=nx>all</span><span class=p>([</span><span class=nx>$promise1</span><span class=p>,</span> <span class=nx>$promise2</span><span class=p>]).</span><span class=nx>then</span><span class=p>([</span><span class=nx>promise1Result</span><span class=p>,</span> <span class=nx>promise2Result</span><span class=p>]</span> <span class=p>=&gt;</span> <span class=p>{});</span>
+</span></span></code></pre></td></tr></table></div></div></li><li><p><a href=#7.3 rel>7.3</a> Deferred</p><p>Deferred 是创建 promises 的一种方式。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kd>function</span> <span class=nx>asyncFunc</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>defer</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>$</span><span class=p>.</span><span class=nx>Deferred</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>  <span class=nx>setTimeout</span><span class=p>(()</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span><span class=p>(</span><span class=kc>true</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nx>defer</span><span class=p>.</span><span class=nx>resolve</span><span class=p>(</span><span class=s1>&#39;some_value_computed_asynchronously&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nx>defer</span><span class=p>.</span><span class=nx>reject</span><span class=p>(</span><span class=s1>&#39;failed&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=p>},</span> <span class=mi>1000</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=nx>defer</span><span class=p>.</span><span class=nx>promise</span><span class=p>();</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kd>function</span> <span class=nx>asyncFunc</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=k>new</span> <span class=nb>Promise</span><span class=p>((</span><span class=nx>resolve</span><span class=p>,</span> <span class=nx>reject</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>setTimeout</span><span class=p>(()</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=k>if</span> <span class=p>(</span><span class=kc>true</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nx>resolve</span><span class=p>(</span><span class=s1>&#39;some_value_computed_asynchronously&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>      <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nx>reject</span><span class=p>(</span><span class=s1>&#39;failed&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>      <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span> <span class=mi>1000</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>  <span class=p>});</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Deferred way
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kd>function</span> <span class=nx>defer</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>deferred</span> <span class=o>=</span> <span class=p>{};</span>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>promise</span> <span class=o>=</span> <span class=k>new</span> <span class=nb>Promise</span><span class=p>((</span><span class=nx>resolve</span><span class=p>,</span> <span class=nx>reject</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>deferred</span><span class=p>.</span><span class=nx>resolve</span> <span class=o>=</span> <span class=nx>resolve</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>deferred</span><span class=p>.</span><span class=nx>reject</span> <span class=o>=</span> <span class=nx>reject</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=p>});</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=nx>deferred</span><span class=p>.</span><span class=nx>promise</span> <span class=o>=</span> <span class=p>()</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=nx>promise</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=p>};</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=nx>deferred</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>function</span> <span class=nx>asyncFunc</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>defer</span> <span class=o>=</span> <span class=nx>defer</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>  <span class=nx>setTimeout</span><span class=p>(()</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span><span class=p>(</span><span class=kc>true</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nx>defer</span><span class=p>.</span><span class=nx>resolve</span><span class=p>(</span><span class=s1>&#39;some_value_computed_asynchronously&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nx>defer</span><span class=p>.</span><span class=nx>reject</span><span class=p>(</span><span class=s1>&#39;failed&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=p>},</span> <span class=mi>1000</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=nx>defer</span><span class=p>.</span><span class=nx>promise</span><span class=p>();</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div></li></ul><p><strong><a href=#%e7%9b%ae%e5%bd%95 rel>⬆ 回到顶部</a></strong></p><h2 id=动画>动画</h2><ul><li><p><a href=#8.1 rel>8.1</a> Show & Hide</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$el</span><span class=p>.</span><span class=nx>show</span><span class=p>();</span>
+</span></span><span class=line><span class=cl><span class=nx>$el</span><span class=p>.</span><span class=nx>hide</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1>// 更多 show 方法的细节详见 https://github.com/oneuijs/oui-dom-utils/blob/master/src/index.js#L363
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>el</span><span class=p>.</span><span class=nx>style</span><span class=p>.</span><span class=nx>display</span> <span class=o>=</span> <span class=s1>&#39;&#39;</span><span class=o>|</span><span class=s1>&#39;inline&#39;</span><span class=o>|</span><span class=s1>&#39;inline-block&#39;</span><span class=o>|</span><span class=s1>&#39;inline-table&#39;</span><span class=o>|</span><span class=s1>&#39;block&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=nx>el</span><span class=p>.</span><span class=nx>style</span><span class=p>.</span><span class=nx>display</span> <span class=o>=</span> <span class=s1>&#39;none&#39;</span><span class=p>;</span>
+</span></span></code></pre></td></tr></table></div></div></li><li><p><a href=#8.2 rel>8.2</a> Toggle</p><p>显示或隐藏元素。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$el</span><span class=p>.</span><span class=nx>toggle</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=k>if</span> <span class=p>(</span><span class=nx>el</span><span class=p>.</span><span class=nx>ownerDocument</span><span class=p>.</span><span class=nx>defaultView</span><span class=p>.</span><span class=nx>getComputedStyle</span><span class=p>(</span><span class=nx>el</span><span class=p>,</span> <span class=kc>null</span><span class=p>).</span><span class=nx>display</span> <span class=o>===</span> <span class=s1>&#39;none&#39;</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nx>el</span><span class=p>.</span><span class=nx>style</span><span class=p>.</span><span class=nx>display</span> <span class=o>=</span> <span class=s1>&#39;&#39;</span><span class=o>|</span><span class=s1>&#39;inline&#39;</span><span class=o>|</span><span class=s1>&#39;inline-block&#39;</span><span class=o>|</span><span class=s1>&#39;inline-table&#39;</span><span class=o>|</span><span class=s1>&#39;block&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nx>el</span><span class=p>.</span><span class=nx>style</span><span class=p>.</span><span class=nx>display</span> <span class=o>=</span> <span class=s1>&#39;none&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div></li><li><p><a href=#8.3 rel>8.3</a> FadeIn & FadeOut</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$el</span><span class=p>.</span><span class=nx>fadeIn</span><span class=p>(</span><span class=mi>3000</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=nx>$el</span><span class=p>.</span><span class=nx>fadeOut</span><span class=p>(</span><span class=mi>3000</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>el</span><span class=p>.</span><span class=nx>style</span><span class=p>.</span><span class=nx>transition</span> <span class=o>=</span> <span class=s1>&#39;opacity 3s&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=c1>// fadeIn
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>el</span><span class=p>.</span><span class=nx>style</span><span class=p>.</span><span class=nx>opacity</span> <span class=o>=</span> <span class=s1>&#39;1&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=c1>// fadeOut
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>el</span><span class=p>.</span><span class=nx>style</span><span class=p>.</span><span class=nx>opacity</span> <span class=o>=</span> <span class=s1>&#39;0&#39;</span><span class=p>;</span>
+</span></span></code></pre></td></tr></table></div></div></li><li><p><a href=#8.4 rel>8.4</a> FadeTo</p><p>调整元素透明度。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$el</span><span class=p>.</span><span class=nx>fadeTo</span><span class=p>(</span><span class=s1>&#39;slow&#39;</span><span class=p>,</span><span class=mf>0.15</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>el</span><span class=p>.</span><span class=nx>style</span><span class=p>.</span><span class=nx>transition</span> <span class=o>=</span> <span class=s1>&#39;opacity 3s&#39;</span><span class=p>;</span> <span class=c1>// 假设 &#39;slow&#39; 等于 3 秒
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>el</span><span class=p>.</span><span class=nx>style</span><span class=p>.</span><span class=nx>opacity</span> <span class=o>=</span> <span class=s1>&#39;0.15&#39;</span><span class=p>;</span>
+</span></span></code></pre></td></tr></table></div></div></li><li><p><a href=#8.5 rel>8.5</a> FadeToggle</p><p>动画调整透明度用来显示或隐藏。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$el</span><span class=p>.</span><span class=nx>fadeToggle</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>el</span><span class=p>.</span><span class=nx>style</span><span class=p>.</span><span class=nx>transition</span> <span class=o>=</span> <span class=s1>&#39;opacity 3s&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=p>{</span> <span class=nx>opacity</span> <span class=p>}</span> <span class=o>=</span> <span class=nx>el</span><span class=p>.</span><span class=nx>ownerDocument</span><span class=p>.</span><span class=nx>defaultView</span><span class=p>.</span><span class=nx>getComputedStyle</span><span class=p>(</span><span class=nx>el</span><span class=p>,</span> <span class=kc>null</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=p>(</span><span class=nx>opacity</span> <span class=o>===</span> <span class=s1>&#39;1&#39;</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nx>el</span><span class=p>.</span><span class=nx>style</span><span class=p>.</span><span class=nx>opacity</span> <span class=o>=</span> <span class=s1>&#39;0&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nx>el</span><span class=p>.</span><span class=nx>style</span><span class=p>.</span><span class=nx>opacity</span> <span class=o>=</span> <span class=s1>&#39;1&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div></li><li><p><a href=#8.6 rel>8.6</a> SlideUp & SlideDown</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$el</span><span class=p>.</span><span class=nx>slideUp</span><span class=p>();</span>
+</span></span><span class=line><span class=cl><span class=nx>$el</span><span class=p>.</span><span class=nx>slideDown</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kr>const</span> <span class=nx>originHeight</span> <span class=o>=</span> <span class=s1>&#39;100px&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=nx>el</span><span class=p>.</span><span class=nx>style</span><span class=p>.</span><span class=nx>transition</span> <span class=o>=</span> <span class=s1>&#39;height 3s&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=c1>// slideUp
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>el</span><span class=p>.</span><span class=nx>style</span><span class=p>.</span><span class=nx>height</span> <span class=o>=</span> <span class=s1>&#39;0px&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=c1>// slideDown
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>el</span><span class=p>.</span><span class=nx>style</span><span class=p>.</span><span class=nx>height</span> <span class=o>=</span> <span class=nx>originHeight</span><span class=p>;</span>
+</span></span></code></pre></td></tr></table></div></div></li><li><p><a href=#8.7 rel>8.7</a> SlideToggle</p><p>滑动切换显示或隐藏。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$el</span><span class=p>.</span><span class=nx>slideToggle</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kr>const</span> <span class=nx>originHeight</span> <span class=o>=</span> <span class=s1>&#39;100px&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=nx>el</span><span class=p>.</span><span class=nx>style</span><span class=p>.</span><span class=nx>transition</span> <span class=o>=</span> <span class=s1>&#39;height 3s&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=p>{</span> <span class=nx>height</span> <span class=p>}</span> <span class=o>=</span> <span class=nx>el</span><span class=p>.</span><span class=nx>ownerDocument</span><span class=p>.</span><span class=nx>defaultView</span><span class=p>.</span><span class=nx>getComputedStyle</span><span class=p>(</span><span class=nx>el</span><span class=p>,</span> <span class=kc>null</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=p>(</span><span class=nb>parseInt</span><span class=p>(</span><span class=nx>height</span><span class=p>,</span> <span class=mi>10</span><span class=p>)</span> <span class=o>===</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nx>el</span><span class=p>.</span><span class=nx>style</span><span class=p>.</span><span class=nx>height</span> <span class=o>=</span> <span class=nx>originHeight</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=k>else</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl> <span class=nx>el</span><span class=p>.</span><span class=nx>style</span><span class=p>.</span><span class=nx>height</span> <span class=o>=</span> <span class=s1>&#39;0px&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div></li><li><p><a href=#8.8 rel>8.8</a> Animate</p><p>执行一系列 CSS 属性动画。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// jQuery
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$el</span><span class=p>.</span><span class=nx>animate</span><span class=p>({</span> <span class=nx>params</span> <span class=p>},</span> <span class=nx>speed</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Native
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>el</span><span class=p>.</span><span class=nx>style</span><span class=p>.</span><span class=nx>transition</span> <span class=o>=</span> <span class=s1>&#39;all &#39;</span> <span class=o>+</span> <span class=nx>speed</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=nb>Object</span><span class=p>.</span><span class=nx>keys</span><span class=p>(</span><span class=nx>params</span><span class=p>).</span><span class=nx>forEach</span><span class=p>((</span><span class=nx>key</span><span class=p>)</span> <span class=p>=&gt;</span>
+</span></span><span class=line><span class=cl>  <span class=nx>el</span><span class=p>.</span><span class=nx>style</span><span class=p>[</span><span class=nx>key</span><span class=p>]</span> <span class=o>=</span> <span class=nx>params</span><span class=p>[</span><span class=nx>key</span><span class=p>];</span>
+</span></span><span class=line><span class=cl><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div></li></ul><p><strong><a href=#%e7%9b%ae%e5%bd%95 rel>⬆ 回到顶部</a></strong></p><h2 id=替代品>替代品</h2><ul><li><p><a href=http://youmightnotneedjquery.com/ target=_blank rel="noopener noreffer">你可能不需要 jQuery (You Might Not Need jQuery)</a> - 如何使用原生 JavaScript 实现通用事件，元素，ajax 等用法。</p></li><li><p><a href=http://github.com/npm-dom target=_blank rel="noopener noreffer">npm-dom</a> 以及 <a href=http://github.com/webmodules target=_blank rel="noopener noreffer">webmodules</a> - 在 NPM 上提供独立 DOM 模块的组织</p></li></ul><h2 id=浏览器支持>浏览器支持</h2><table><thead><tr><th><img class=lazyload src=/svg/loading.min.svg data-src=https://raw.github.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png data-srcset="https://raw.github.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png, https://raw.github.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png 1.5x, https://raw.github.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png 2x" data-sizes=auto alt=https://raw.github.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png title=Chrome></th><th><img class=lazyload src=/svg/loading.min.svg data-src=https://raw.github.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png data-srcset="https://raw.github.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png, https://raw.github.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png 1.5x, https://raw.github.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png 2x" data-sizes=auto alt=https://raw.github.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png title=Firefox></th><th><img class=lazyload src=/svg/loading.min.svg data-src=https://raw.github.com/alrra/browser-logos/master/src/archive/internet-explorer_9-11/internet-explorer_9-11_48x48.png data-srcset="https://raw.github.com/alrra/browser-logos/master/src/archive/internet-explorer_9-11/internet-explorer_9-11_48x48.png, https://raw.github.com/alrra/browser-logos/master/src/archive/internet-explorer_9-11/internet-explorer_9-11_48x48.png 1.5x, https://raw.github.com/alrra/browser-logos/master/src/archive/internet-explorer_9-11/internet-explorer_9-11_48x48.png 2x" data-sizes=auto alt=https://raw.github.com/alrra/browser-logos/master/src/archive/internet-explorer_9-11/internet-explorer_9-11_48x48.png title=IE></th><th><img class=lazyload src=/svg/loading.min.svg data-src=https://raw.github.com/alrra/browser-logos/master/src/opera/opera_48x48.png data-srcset="https://raw.github.com/alrra/browser-logos/master/src/opera/opera_48x48.png, https://raw.github.com/alrra/browser-logos/master/src/opera/opera_48x48.png 1.5x, https://raw.github.com/alrra/browser-logos/master/src/opera/opera_48x48.png 2x" data-sizes=auto alt=https://raw.github.com/alrra/browser-logos/master/src/opera/opera_48x48.png title=Opera></th><th><img class=lazyload src=/svg/loading.min.svg data-src=https://raw.github.com/alrra/browser-logos/master/src/safari/safari_48x48.png data-srcset="https://raw.github.com/alrra/browser-logos/master/src/safari/safari_48x48.png, https://raw.github.com/alrra/browser-logos/master/src/safari/safari_48x48.png 1.5x, https://raw.github.com/alrra/browser-logos/master/src/safari/safari_48x48.png 2x" data-sizes=auto alt=https://raw.github.com/alrra/browser-logos/master/src/safari/safari_48x48.png title=Safari></th></tr></thead><tbody><tr><td>Latest ✔</td><td>Latest ✔</td><td>10+ ✔</td><td>Latest ✔</td><td>6.1+ ✔</td></tr></tbody></table><h1 id=license>License</h1><p>MIT</p></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>更新于 2022-01-19</span></div><div class=post-info-license></div></div><div class=post-info-line><div class=post-info-md></div><div class=post-info-share><span><a href=javascript:void(0); title="分享到 Twitter" data-sharer=twitter data-url=https://blog.beancake.cn/%E4%BD%A0%E4%B9%9F%E8%AE%B8%E4%B8%8D%E9%9C%80%E8%A6%81-jquery/ data-title="你也许不需要 jQuery " data-hashtags=JavaScript,编程><i class="fab fa-twitter fa-fw"></i></a><a href=javascript:void(0); title="分享到 Facebook" data-sharer=facebook data-url=https://blog.beancake.cn/%E4%BD%A0%E4%B9%9F%E8%AE%B8%E4%B8%8D%E9%9C%80%E8%A6%81-jquery/ data-hashtag=JavaScript><i class="fab fa-facebook-square fa-fw"></i></a><a href=javascript:void(0); title="分享到 WhatsApp" data-sharer=whatsapp data-url=https://blog.beancake.cn/%E4%BD%A0%E4%B9%9F%E8%AE%B8%E4%B8%8D%E9%9C%80%E8%A6%81-jquery/ data-title="你也许不需要 jQuery " data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href=javascript:void(0); title="分享到 Line" data-sharer=line data-url=https://blog.beancake.cn/%E4%BD%A0%E4%B9%9F%E8%AE%B8%E4%B8%8D%E9%9C%80%E8%A6%81-jquery/ data-title="你也许不需要 jQuery "><i data-svg-src=/lib/simple-icons/icons/line.min.svg></i></a><a href=javascript:void(0); title="分享到 微博" data-sharer=weibo data-url=https://blog.beancake.cn/%E4%BD%A0%E4%B9%9F%E8%AE%B8%E4%B8%8D%E9%9C%80%E8%A6%81-jquery/ data-title="你也许不需要 jQuery "><i class="fab fa-weibo fa-fw"></i></a><a href=javascript:void(0); title="分享到 Myspace" data-sharer=myspace data-url=https://blog.beancake.cn/%E4%BD%A0%E4%B9%9F%E8%AE%B8%E4%B8%8D%E9%9C%80%E8%A6%81-jquery/ data-title="你也许不需要 jQuery " data-description><i data-svg-src=/lib/simple-icons/icons/myspace.min.svg></i></a><a href=javascript:void(0); title="分享到 Blogger" data-sharer=blogger data-url=https://blog.beancake.cn/%E4%BD%A0%E4%B9%9F%E8%AE%B8%E4%B8%8D%E9%9C%80%E8%A6%81-jquery/ data-title="你也许不需要 jQuery " data-description><i class="fab fa-blogger fa-fw"></i></a><a href=javascript:void(0); title="分享到 Evernote" data-sharer=evernote data-url=https://blog.beancake.cn/%E4%BD%A0%E4%B9%9F%E8%AE%B8%E4%B8%8D%E9%9C%80%E8%A6%81-jquery/ data-title="你也许不需要 jQuery "><i class="fab fa-evernote fa-fw"></i></a></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/javascript/>JavaScript</a>,&nbsp;<a href=/tags/%E7%BC%96%E7%A8%8B/>编程</a></section><section><span><a href=javascript:void(0); onclick=window.history.back()>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span></section></div><div class=post-nav><a href=/20%E5%B9%B4%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%BB%8F%E9%AA%8C%E5%AD%A6%E5%88%B0%E7%9A%8420%E4%BB%B6%E4%BA%8B/ class=prev rel=prev title=做了20年软件工程师学到的20件事><i class="fas fa-angle-left fa-fw"></i>做了20年软件工程师学到的20件事</a>
+<a href=/%E5%BC%BA%E5%A4%A7%E7%9A%84%E6%A8%A1%E5%9D%97%E5%8C%96%E8%AE%A1%E7%AE%97%E6%9C%BA/ class=next rel=next title=强大的模块化计算机>强大的模块化计算机<i class="fas fa-angle-right fa-fw"></i></a></div></div><div id=comments><div id=valine class=comment></div><noscript>Please enable JavaScript to view the comments powered by <a href=https://valine.js.org/>Valine</a>.</noscript></div></article></div></main><footer class=footer><div class=footer-container><div class=footer-line>由 <a href=https://gohugo.io/ target=_blank rel="noopener noreffer" title="Hugo 0.99.1">Hugo</a> 强力驱动 | 主题 - <a href=https://github.com/dillonzq/LoveIt target=_blank rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a></div><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2018 - 2022</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=/ target=_blank>zyscn</a></span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span><span class=icp-splitter>&nbsp;|&nbsp;</span><br class=icp-br><span class=icp><a href=https://beian.miit.gov.cn/ target=_blank>鲁ICP备2020043494号</a></span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title=回到顶部><i class="fas fa-arrow-up fa-fw"></i>
+</a><a href=# id=view-comments class=fixed-button title=查看评论><i class="fas fa-comment fa-fw"></i></a></div><link rel=stylesheet href=/lib/valine/valine.min.css><script type=text/javascript src=/lib/valine/Valine.min.js></script><script type=text/javascript src=/lib/smooth-scroll/smooth-scroll.min.js></script><script type=text/javascript src=/lib/autocomplete/autocomplete.min.js></script><script type=text/javascript src=/lib/algoliasearch/algoliasearch-lite.umd.min.js></script><script type=text/javascript src=/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript src=/lib/sharer/sharer.min.js></script><script type=text/javascript>window.config={code:{copyTitle:"复制到剪贴板",maxShownLines:50},comment:{valine:{appId:"7W7eb3SB8pwb9VJOJAVVv61f-gzGzoHsz",appKey:"HWj6JaU0NhKKiTC0Ur0a0C0I",avatar:"mp",el:"#valine",emojiCDN:"https://fastly.jsdelivr.net/npm/emoji-datasource-apple@5.0.1/img/apple/64/",emojiMaps:{100:"1f4af.png",alien:"1f47d.png",anger:"1f4a2.png",angry:"1f620.png",anguished:"1f627.png",astonished:"1f632.png",black_heart:"1f5a4.png",blue_heart:"1f499.png",blush:"1f60a.png",bomb:"1f4a3.png",boom:"1f4a5.png",broken_heart:"1f494.png",brown_heart:"1f90e.png",clown_face:"1f921.png",cold_face:"1f976.png",cold_sweat:"1f630.png",confounded:"1f616.png",confused:"1f615.png",cry:"1f622.png",crying_cat_face:"1f63f.png",cupid:"1f498.png",dash:"1f4a8.png",disappointed:"1f61e.png",disappointed_relieved:"1f625.png",dizzy:"1f4ab.png",dizzy_face:"1f635.png",drooling_face:"1f924.png",exploding_head:"1f92f.png",expressionless:"1f611.png",face_vomiting:"1f92e.png",face_with_cowboy_hat:"1f920.png",face_with_hand_over_mouth:"1f92d.png",face_with_head_bandage:"1f915.png",face_with_monocle:"1f9d0.png",face_with_raised_eyebrow:"1f928.png",face_with_rolling_eyes:"1f644.png",face_with_symbols_on_mouth:"1f92c.png",face_with_thermometer:"1f912.png",fearful:"1f628.png",flushed:"1f633.png",frowning:"1f626.png",ghost:"1f47b.png",gift_heart:"1f49d.png",green_heart:"1f49a.png",grimacing:"1f62c.png",grin:"1f601.png",grinning:"1f600.png",hankey:"1f4a9.png",hear_no_evil:"1f649.png",heart:"2764-fe0f.png",heart_decoration:"1f49f.png",heart_eyes:"1f60d.png",heart_eyes_cat:"1f63b.png",heartbeat:"1f493.png",heartpulse:"1f497.png",heavy_heart_exclamation_mark_ornament:"2763-fe0f.png",hole:"1f573-fe0f.png",hot_face:"1f975.png",hugging_face:"1f917.png",hushed:"1f62f.png",imp:"1f47f.png",innocent:"1f607.png",japanese_goblin:"1f47a.png",japanese_ogre:"1f479.png",joy:"1f602.png",joy_cat:"1f639.png",kiss:"1f48b.png",kissing:"1f617.png",kissing_cat:"1f63d.png",kissing_closed_eyes:"1f61a.png",kissing_heart:"1f618.png",kissing_smiling_eyes:"1f619.png",laughing:"1f606.png",left_speech_bubble:"1f5e8-fe0f.png",love_letter:"1f48c.png",lying_face:"1f925.png",mask:"1f637.png",money_mouth_face:"1f911.png",nauseated_face:"1f922.png",nerd_face:"1f913.png",neutral_face:"1f610.png",no_mouth:"1f636.png",open_mouth:"1f62e.png",orange_heart:"1f9e1.png",partying_face:"1f973.png",pensive:"1f614.png",persevere:"1f623.png",pleading_face:"1f97a.png",pouting_cat:"1f63e.png",purple_heart:"1f49c.png",rage:"1f621.png",relaxed:"263a-fe0f.png",relieved:"1f60c.png",revolving_hearts:"1f49e.png",right_anger_bubble:"1f5ef-fe0f.png",robot_face:"1f916.png",rolling_on_the_floor_laughing:"1f923.png",scream:"1f631.png",scream_cat:"1f640.png",see_no_evil:"1f648.png",shushing_face:"1f92b.png",skull:"1f480.png",skull_and_crossbones:"2620-fe0f.png",sleeping:"1f634.png",sleepy:"1f62a.png",slightly_frowning_face:"1f641.png",slightly_smiling_face:"1f642.png",smile:"1f604.png",smile_cat:"1f638.png",smiley:"1f603.png",smiley_cat:"1f63a.png",smiling_face_with_3_hearts:"1f970.png",smiling_imp:"1f608.png",smirk:"1f60f.png",smirk_cat:"1f63c.png",sneezing_face:"1f927.png",sob:"1f62d.png",space_invader:"1f47e.png",sparkling_heart:"1f496.png",speak_no_evil:"1f64a.png",speech_balloon:"1f4ac.png","star-struck":"1f929.png",stuck_out_tongue:"1f61b.png",stuck_out_tongue_closed_eyes:"1f61d.png",stuck_out_tongue_winking_eye:"1f61c.png",sunglasses:"1f60e.png",sweat:"1f613.png",sweat_drops:"1f4a6.png",sweat_smile:"1f605.png",thinking_face:"1f914.png",thought_balloon:"1f4ad.png",tired_face:"1f62b.png",triumph:"1f624.png",two_hearts:"1f495.png",unamused:"1f612.png",upside_down_face:"1f643.png",weary:"1f629.png",white_frowning_face:"2639-fe0f.png",white_heart:"1f90d.png",wink:"1f609.png",woozy_face:"1f974.png",worried:"1f61f.png",yawning_face:"1f971.png",yellow_heart:"1f49b.png",yum:"1f60b.png",zany_face:"1f92a.png",zipper_mouth_face:"1f910.png",zzz:"1f4a4.png"},enableQQ:!0,highlight:!0,lang:"zh-cn",pageSize:10,placeholder:"说点什么吧...",recordIP:!0,visitor:!0}},search:{algoliaAppID:"EV52XFAC18",algoliaIndex:"beancake",algoliaSearchKey:"0ee76b062faa40c32063a4f7c0911352",highlightTag:"em",maxResultLength:10,noResultsFound:"没有找到结果",snippetLength:50,type:"algolia"}}</script><script type=text/javascript src=/js/theme.min.js></script><script type=text/javascript>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","UA-172451300-1")</script><script type=text/javascript src="https://www.googletagmanager.com/gtag/js?id=UA-172451300-1" async></script></body></html>
