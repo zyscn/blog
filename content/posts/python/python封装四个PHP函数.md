@@ -1,6 +1,6 @@
 ---
 
-title: "python封装三个常用PHP函数"
+title: "python封装四个常用PHP函数"
 date: 2022-05-25
 lastmod: 2022-05-25
 timezone: UTC+8
