@@ -26,5 +26,5 @@ dm=client.CreateObject("dm.dmsoft")
 print(dm.ver())
 dm.MoveTO(10,10)
 ```
-[附件](https://mega.lanzous.com/iFkDAelptti)
+[用到的文件](https://www.123pan.com/s/wlTrVv-LfoJ)
 
