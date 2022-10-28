@@ -360,7 +360,7 @@ theme = "LoveIt"
         clientSecret = ""
       # Valine 评论系统设置
       [params.page.comment.valine]
-        enable = true
+        enable = false
         appId = "7W7eb3SB8pwb9VJOJAVVv61f-gzGzoHsz"
         appKey = "HWj6JaU0NhKKiTC0Ur0a0C0I"
         placeholder = "说点什么吧..."
