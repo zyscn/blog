@@ -20,7 +20,7 @@ Sub Macro()
     Set docApp = CreateObject("Word.Application")
     With docApp
             .Visible = False
-            .Documents.Open mypath & Newname  打开我们复制的新文件进行模板文字替换
+            .Documents.Open mypath & Newname  '打开我们复制的新文件进行模板文字替换
             Do While .Selection.Find.Execute("门店名称")
             .Selection.Text = Range("A" & i).Text '替换字符串
             .Selection.HomeKey Unit:=6
