@@ -1,8 +1,8 @@
 ---
 
 title: "excel批量生成word"
-date: 2022-01-04T11:00:00+08:00
-lastmod: 2022-01-04T11:00:00+08:00
+date: 2022-01-04T00:00:00+08:00
+lastmod: 2022-01-04T00:00:00+08:00
 draft: false
 tags: ["办公","excel" ]
 categories: ["excel"]
