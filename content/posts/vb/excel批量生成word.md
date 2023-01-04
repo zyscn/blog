@@ -1,8 +1,8 @@
 ---
 
 title: "excel批量生成word"
-date: 2022-01-04T00:00:00+08:00
-lastmod: 2022-01-04T00:00:00+08:00
+date: 2023-01-04T00:00:00+08:00
+lastmod: 2023-01-04T00:00:00+08:00
 draft: false
 tags: ["办公","excel" ]
 categories: ["excel"]
@@ -10,7 +10,7 @@ author: "zyscn"
 
 ---
 
-```vbs
+```vb
 Sub Macro()
     i = 1
     Do While i < 73      '循环次数，需替换的文本行数
