@@ -13,9 +13,9 @@ author: "zyscn"
 ```vb
 Sub Macro()
     i = 1
+    mypath = "C:\Users\xinxi\Desktop\123\"     '文件路径
     Do While i < 73      '循环次数，需替换的文本行数
     Newname = Range("A" & i) & ".docx"       '给新生成的表起个名称
-    mypath = "C:\Users\xinxi\Desktop\123\"     '文件路径
     FileCopy mypath & "申请表.docx", mypath & Newname '复制模板文件
     Set docApp = CreateObject("Word.Application")
     With docApp
