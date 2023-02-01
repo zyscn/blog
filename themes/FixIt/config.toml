@@ -71,7 +71,7 @@ theme = "FixIt"
   # 网站图片, 用于 Open Graph 和 Twitter Cards
   images = ["/logo.png"]
   #  开启 PWA 支持
-  enablePWA = true
+  enablePWA = false
   #  是否自动显示外链图标
   externalIcon = false
   #  默认情况下，FixIt 只会在主页的 HTML 头中注入主题元标记
