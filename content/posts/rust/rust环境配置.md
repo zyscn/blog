@@ -7,7 +7,7 @@ timezone: UTC+8
 draft: false
 tags: ["rust", "编程"]
 categories: ["rust"]
-author: "zys"
+author: "zyscn"
 
 ---
 

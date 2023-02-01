@@ -7,7 +7,7 @@ timezone: UTC+8
 draft: false
 tags: ["c++", "dll"]
 categories: ["C++"]
-author: "zys"
+author: "zyscn"
 
 ---
 

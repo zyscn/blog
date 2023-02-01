@@ -6,7 +6,7 @@ lastmod: 2021-10-06T11:00:00+08:00
 draft: false
 tags: ["JavaScript", "nodejs"]
 categories: ["JavaScript"]
-author: "zys"
+author: "zyscn"
 
 ---
 ## nodejs通过ffi-napi调用系统dll文件

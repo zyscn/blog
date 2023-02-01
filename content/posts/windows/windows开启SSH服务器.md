@@ -7,7 +7,7 @@ timezone: UTC+8
 draft: false
 tags: ["windows", "ssh"]
 categories: ["ssh"]
-author: "zys"
+author: "zyscn"
 
 ---
 

@@ -6,7 +6,7 @@ timezone: UTC+8
 draft: false
 tags: ["python","线程"]
 categories: ["python"]
-author: "zys"
+author: "zyscn"
 ---
 ```python
 import threading
