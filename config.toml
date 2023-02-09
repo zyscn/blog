@@ -378,7 +378,7 @@ theme = "LoveIt"
         # 位于 "themes/LoveIt/assets/data/emoji/" 目录
         # 可以在你的项目下相同路径存放你自己的数据文件:
         # "assets/data/emoji/"
-        emoji = "apple.yml"
+        emoji = ""
       # Facebook 评论系统设置
       [params.page.comment.facebook]
         enable = false
