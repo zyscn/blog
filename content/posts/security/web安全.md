@@ -1,6 +1,7 @@
 ---
 
 title: "web安全笔记"
+description: "大纲"
 date: 2020-02-07T12:00:00
 lastmod: 2020-02-07T12:00:00
 timezone: UTC+8
@@ -10,7 +11,7 @@ categories: ["安全"]
 author: "zyscn"
 
 ---
-
+<!--more-->
 # 基础
 
 ## 前端与后端知识

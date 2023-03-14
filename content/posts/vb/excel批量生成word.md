@@ -1,6 +1,7 @@
 ---
 
 title: "excel批量生成word"
+description: "根据excel表格数据和word模板批量生成相同模板word"
 date: 2023-01-04T00:00:00+08:00
 lastmod: 2023-01-04T00:00:00+08:00
 draft: false
@@ -9,8 +10,8 @@ categories: ["excel"]
 author: "zyscn"
 
 ---
-
-```vb
+<!--more-->
+```vba
 Sub Macro()
     i = 1
     mypath = "C:\Users\xinxi\Desktop\123\"     '文件路径

@@ -1,6 +1,7 @@
 ---
 
 title: "JavaScript字符串String提取方法比较"
+description: ""
 date: 2019-03-17T12:00:00
 lastmod: 2019-03-17T12:00:00
 timezone: UTC+8
@@ -10,6 +11,7 @@ categories: ["JavaScript"]
 author: "zyscn"
 
 ---
+<!--more-->
 # JavaScript: Slice, Substring, or Substr的选择！
 
 ## 在JavaScript中，子字符串主要通过以下String方法之一提取：

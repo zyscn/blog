@@ -1,6 +1,7 @@
 ---
 
 title: "nodejs调用dll"
+description: ""
 date: 2021-10-06T11:00:00+08:00
 lastmod: 2021-10-06T11:00:00+08:00
 draft: false
@@ -9,6 +10,7 @@ categories: ["JavaScript"]
 author: "zyscn"
 
 ---
+<!--more-->
 ## nodejs通过ffi-napi调用系统dll文件
 
 

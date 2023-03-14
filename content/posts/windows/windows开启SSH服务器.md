@@ -1,6 +1,7 @@
 ---
 
 title: "windows开启SSH服务器"
+description: "windows10开始默认自带openssh组件"
 date: 2019-11-13T12:00:00
 lastmod: 2019-11-13T12:00:00
 timezone: UTC+8
@@ -10,7 +11,7 @@ categories: ["ssh"]
 author: "zyscn"
 
 ---
-
+<!--more-->
 
 # SSH服务器
 

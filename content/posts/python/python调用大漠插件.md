@@ -1,6 +1,7 @@
 ---
 
 title: "python调用大漠插件"
+description: "python 无注册 调用破解大漠dll"
 date: 2020-02-03T12:00:00
 lastmod: 2020-02-03T12:00:00
 timezone: UTC+8
@@ -10,7 +11,7 @@ categories: ["python"]
 author: "zyscn"
 
 ---
-
+<!--more-->
 
 ## 利用init破解权限和免注册com
 

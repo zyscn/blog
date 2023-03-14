@@ -1,6 +1,7 @@
 ---
 
 title: "rust环境配置"
+description: "rust安装"
 date: 2020-02-01T10:00:00
 lastmod: 2020-02-01T10:00:00
 timezone: UTC+8
@@ -10,7 +11,7 @@ categories: ["rust"]
 author: "zyscn"
 
 ---
-
+<!--more-->
 ## 官网下载初始化包
 
 [官网](https://www.rust-lang.org/zh-CN/learn/get-started)

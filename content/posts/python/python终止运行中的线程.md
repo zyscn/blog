@@ -1,5 +1,6 @@
 ---
 title: "python线程操作"
+description: "python多线程程序运行"
 date: 2022-05-19T00:00:00
 lastmod: 2022-09-19T00:00:00
 timezone: UTC+8
@@ -8,6 +9,7 @@ tags: ["python","线程"]
 categories: ["python"]
 author: "zyscn"
 ---
+<!--more-->
 ```python
 import threading
 import time

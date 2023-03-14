@@ -1,6 +1,7 @@
 ---
 
 title: "python封装四个常用PHP函数"
+description: "python封装四个常用PHP函数，ksort，implode，md5，base64_encode"
 date: 2022-05-25
 lastmod: 2022-05-25
 timezone: UTC+8
@@ -10,7 +11,7 @@ categories: ["python"]
 author: "zyscn"
 
 ---
-
+<!--more-->
 ```python
 from collections import OrderedDict
 import hashlib

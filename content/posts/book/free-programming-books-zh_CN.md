@@ -1,6 +1,7 @@
 ---
 
 title: "免费的计算机编程类中文书籍"
+description: "github文章转载"
 date: 2021-05-20T20:30:00
 lastmod: 2021-05-20T20:30:00
 timezone: UTC+8
@@ -10,7 +11,7 @@ categories: ["计算机书籍"]
 author: "justjavac"
 
 ---  
-    
+<!--more-->    
 ## 非编程语言类
 
 ### 置顶

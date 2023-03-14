@@ -1,6 +1,7 @@
 ---
 
 title: "Termux 高级终端安装使用配置教程"
+description: "转载文章"
 date: 2019-03-18T12:00:00
 lastmod: 2019-03-18T12:00:00
 timezone: UTC+8
@@ -10,7 +11,7 @@ categories: ["Termux"]
 author: "转载"
 
 ---
-
+<!--more-->
 ![](https://image.3001.net/images/20180501/15251875958364.png)
 Termux 高级终端安装使用配置教程,这篇文章拖了有小半年.因为网上相关的文章相对来说还是比较少的,恰好今天又刷了机,所以就特意来总结一下,希望本文可以帮助到其他的小伙伴.发挥Android平台更大的DIY空间.
 

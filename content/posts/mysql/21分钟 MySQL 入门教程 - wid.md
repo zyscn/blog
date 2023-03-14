@@ -1,6 +1,7 @@
 ---
 
 title: "MySQL入门"
+description: "MySQL入门教程"
 date: 2021-05-20T00:00:00
 lastmod: 2021-05-20T00:00:00
 timezone: UTC+8
@@ -10,7 +11,7 @@ categories: ["SQL"]
 author: "mr-wid"
 
 ---
-
+<!--more-->
 ## MySQL的相关概念介绍
 
 MySQL 为关系型数据库(Relational Database Management System), 这种所谓的"关系型"可以理解为"表格"的概念, 一个关系型数据库由一个或数个表格组成。

@@ -1,6 +1,7 @@
 ---
 
 title: "git push常见问题"
+description: "push常见错误"
 date: 2019-10-08T12:00:00
 lastmod: 2019-10-08T12:00:00
 timezone: UTC+8
@@ -10,7 +11,7 @@ categories: ["git"]
 author: "zyscn"
 
 ---
-
+<!--more-->
 # git push常见问题
 
 ## fatal: refusing to merge unrelated histories
