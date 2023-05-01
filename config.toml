@@ -39,6 +39,14 @@ theme = "LoveIt"
     url = "/categories/"
     title = ""
     weight = 3
+    [[menu.main]]
+    identifier = "nav"
+    pre = ""
+    post = ""
+    name = "网址导航"
+    url = "https://zyscn.eu.org/nav"
+    title = ""
+    weight = 4
 
 [params]
   #  LoveIt 主题版本
