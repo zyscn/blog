@@ -52,9 +52,9 @@ theme = "LoveIt"
   #  LoveIt 主题版本
   version = "0.2.X"
   # 网站描述
-  description = "zys的个人分享哲学,数学,编程知识的博客"
+  description = "个人思考随笔"
   # 网站关键词
-  keywords = ["blog","哲学","数学","计算机","随笔","思考"]
+  keywords = ["blog","哲学","数学","计算机","随笔","思考","编程","历史"]
   # 网站默认主题样式 ("light", "dark", "auto")
   defaultTheme = "auto"
   # 公共 git 仓库路径，仅在 enableGitInfo 设为 true 时有效
@@ -173,7 +173,7 @@ theme = "LoveIt"
       #  主页显示的网站标题 (支持 HTML 格式)
       title = ""
       # 主页显示的网站副标题
-      subtitle = "分享知识"
+      subtitle = "思辨，思变。"
       # 是否为副标题显示打字机动画
       typeit = true
       # 是否显示社交账号
