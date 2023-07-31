@@ -44,7 +44,7 @@ theme = "DoIt"
     pre = ""
     post = ""
     name = "网址导航"
-    url = "https://zyscn.eu.org/nav"
+    url = "https://navcat.likesyou.org"
     title = ""
     weight = 4
 
@@ -53,7 +53,7 @@ theme = "DoIt"
   #  LoveIt 主题版本
   version = "0.3.X"
   # 网站描述
-  description = "个人思考随笔"
+  description = "思考分享"
   # 网站关键词
   keywords = ["blog","哲学","数学","计算机","随笔","思考","编程","历史"]
   # 网站默认主题样式 ("light", "dark", "auto")
