@@ -1,7 +1,7 @@
 ---
 
 title: "VC++导出Dll常见方法"
-description: "windows c++导出dll动态库文件常用方式"
+summary: "windows c++导出dll动态库文件常用方式"
 date: 2019-11-08
 lastmod: 2019-11-08
 timezone: UTC+8
@@ -11,7 +11,7 @@ categories: ["C++"]
 author: "zyscn"
 
 ---
-<!--more-->
+
 # 调用约定 _stdcall,_cdecl
 1. _stdcall调用
 

@@ -1,7 +1,7 @@
 ---
 
 title: "rust导出Dll"
-description: "windows rust 导出 动态库文件"
+summary: "windows rust 导出 动态库文件"
 date: 2020-02-02T12:00:00
 lastmod: 2020-02-02T12:00:00
 timezone: UTC+8
@@ -11,7 +11,7 @@ categories: ["rust"]
 author: "zyscn"
 
 ---
-<!--more-->
+
 ## rust导出dll
 
 ### 首先创建lib项目

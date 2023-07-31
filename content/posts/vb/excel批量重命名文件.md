@@ -1,6 +1,6 @@
 ---
 title: "excel批量重命名文件"
-description: "根据excel表格数据批量重命名文件"
+summary: "根据excel表格数据批量重命名文件"
 date: 2023-01-05T00:00:00+08:00
 lastmod: 2023-01-05T00:00:00+08:00
 draft: false
@@ -8,7 +8,7 @@ tags: ["办公","excel" ]
 categories: ["excel"]
 author: "zyscn"
 ---
-<!--more-->
+
 ```vba
 Function IsFileExists(ByVal strFileName As String) As Boolean
     If Dir(strFileName, 16) <> Empty Then

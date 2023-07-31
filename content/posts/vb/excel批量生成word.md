@@ -1,16 +1,15 @@
 ---
 
 title: "excel批量生成word"
-description: "根据excel表格数据和word模板批量生成相同模板word"
+summary: "根据excel表格数据和word模板批量生成相同模板word"
 date: 2023-01-04T00:00:00+08:00
 lastmod: 2023-01-04T00:00:00+08:00
 draft: false
 tags: ["办公","excel" ]
 categories: ["excel"]
 author: "zyscn"
-
 ---
-<!--more-->
+
 ```vba
 Sub Macro()
     i = 1

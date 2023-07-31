@@ -1,7 +1,7 @@
 ---
 
 title: "python调用libxl插件"
-description: "python调用libxl插件无需安装excel软件处理excel表格"
+summary: "python调用libxl插件无需安装excel软件处理excel表格"
 date: 2021-09-28T12:00:00
 lastmod: 2021-09-28T12:00:00
 timezone: UTC+8
@@ -11,7 +11,7 @@ categories: ["python"]
 author: "zyscn"
 
 ---
-<!--more-->
+
 [libxl官网](https://www.libxl.com/)
 
 ## 封装libxl.py示例
