@@ -44,7 +44,7 @@ theme = "DoIt"
     pre = ""
     post = ""
     name = "网址导航"
-    url = "https://navcat.likesyou.org"
+    url = "https://navcat.cachefly.net/"
     title = ""
     weight = 4
 [params]
