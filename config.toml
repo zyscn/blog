@@ -43,8 +43,8 @@ theme = "DoIt"
     identifier = "nav"
     pre = ""
     post = ""
-    name = "网址导航"
-    url = "https://navcat.cachefly.net/"
+    name = "导航猫"
+    url = "https://navcat.cachefly.net"
     title = ""
     weight = 4
 [params]
