@@ -496,11 +496,11 @@ theme = "DoIt"
         darkTheme = "github-dark"
       #  Twikoo 评论系统设置
       [params.page.comment.twikoo]
-        enable = false
-        envId = ""
+        enable = true
+        envId = "https://twikoo.pondernote.com/"
         region = ""
         path = ""
-        cloudbase = true # boolean : true / false. # 是否部署在腾讯云 CloudBase
+        cloudbase = false # boolean : true / false. # 是否部署在腾讯云 CloudBase
         visitor = true
         commentCount = true
       #  Vssue 评论系统设置
