@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Nodejs - 标签 - ZYSCN</title>
+        <link>http://localhost:1313/tags/nodejs/</link>
+        <description>Nodejs - 标签 - ZYSCN</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>zys@hotmail.com (zys)</managingEditor>
+            <webMaster>zys@hotmail.com (zys)</webMaster><lastBuildDate>Wed, 06 Oct 2021 11:00:00 &#43;0800</lastBuildDate><atom:link href="http://localhost:1313/tags/nodejs/" rel="self" type="application/rss+xml" /><item>
+    <title>nodejs调用dll</title>
+    <link>http://localhost:1313/node%E8%B0%83%E7%94%A8dll/</link>
+    <pubDate>Wed, 06 Oct 2021 11:00:00 &#43;0800</pubDate><author>
+        <name>zys</name>
+    </author><guid>http://localhost:1313/node%E8%B0%83%E7%94%A8dll/</guid>
+    <description><![CDATA[nodejs通过ffi-napi调用dll文件]]></description>
+</item></channel>
+</rss>

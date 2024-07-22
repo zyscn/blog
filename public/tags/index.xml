@@ -1,0 +1,78 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Tags - 标签 - ZYSCN</title>
+        <link>http://localhost:1313/tags/</link>
+        <description>Tags - 标签 - ZYSCN</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>zys@hotmail.com (zys)</managingEditor>
+            <webMaster>zys@hotmail.com (zys)</webMaster><lastBuildDate>Thu, 05 Jan 2023 00:00:00 &#43;0800</lastBuildDate><atom:link href="http://localhost:1313/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>Excel</title>
+    <link>http://localhost:1313/tags/excel/</link>
+    <pubDate>Thu, 05 Jan 2023 00:00:00 &#43;0800</pubDate><author>
+        <name>zys</name>
+    </author><guid>http://localhost:1313/tags/excel/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>办公</title>
+    <link>http://localhost:1313/tags/%E5%8A%9E%E5%85%AC/</link>
+    <pubDate>Thu, 05 Jan 2023 00:00:00 &#43;0800</pubDate><author>
+        <name>zys</name>
+    </author><guid>http://localhost:1313/tags/%E5%8A%9E%E5%85%AC/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>Php</title>
+    <link>http://localhost:1313/tags/php/</link>
+    <pubDate>Wed, 25 May 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>zys</name>
+    </author><guid>http://localhost:1313/tags/php/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>Python</title>
+    <link>http://localhost:1313/tags/python/</link>
+    <pubDate>Wed, 25 May 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>zys</name>
+    </author><guid>http://localhost:1313/tags/python/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>线程</title>
+    <link>http://localhost:1313/tags/%E7%BA%BF%E7%A8%8B/</link>
+    <pubDate>Thu, 19 May 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>zys</name>
+    </author><guid>http://localhost:1313/tags/%E7%BA%BF%E7%A8%8B/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>JavaScript</title>
+    <link>http://localhost:1313/tags/javascript/</link>
+    <pubDate>Wed, 06 Oct 2021 11:00:00 &#43;0800</pubDate><author>
+        <name>zys</name>
+    </author><guid>http://localhost:1313/tags/javascript/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>Nodejs</title>
+    <link>http://localhost:1313/tags/nodejs/</link>
+    <pubDate>Wed, 06 Oct 2021 11:00:00 &#43;0800</pubDate><author>
+        <name>zys</name>
+    </author><guid>http://localhost:1313/tags/nodejs/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>Dll</title>
+    <link>http://localhost:1313/tags/dll/</link>
+    <pubDate>Tue, 28 Sep 2021 12:00:00 &#43;0000</pubDate><author>
+        <name>zys</name>
+    </author><guid>http://localhost:1313/tags/dll/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>Web</title>
+    <link>http://localhost:1313/tags/web/</link>
+    <pubDate>Fri, 07 Feb 2020 12:00:00 &#43;0000</pubDate><author>
+        <name>zys</name>
+    </author><guid>http://localhost:1313/tags/web/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>安全</title>
+    <link>http://localhost:1313/tags/%E5%AE%89%E5%85%A8/</link>
+    <pubDate>Fri, 07 Feb 2020 12:00:00 &#43;0000</pubDate><author>
+        <name>zys</name>
+    </author><guid>http://localhost:1313/tags/%E5%AE%89%E5%85%A8/</guid>
+    <description><![CDATA[]]></description>
+</item></channel>
+</rss>

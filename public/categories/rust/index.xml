@@ -1,0 +1,22 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Rust - 分类 - ZYSCN</title>
+        <link>http://localhost:1313/categories/rust/</link>
+        <description>Rust - 分类 - ZYSCN</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>zys@hotmail.com (zys)</managingEditor>
+            <webMaster>zys@hotmail.com (zys)</webMaster><lastBuildDate>Sun, 02 Feb 2020 12:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/categories/rust/" rel="self" type="application/rss+xml" /><item>
+    <title>rust导出Dll</title>
+    <link>http://localhost:1313/rust%E5%AF%BC%E5%87%BAdll/</link>
+    <pubDate>Sun, 02 Feb 2020 12:00:00 &#43;0000</pubDate><author>
+        <name>zys</name>
+    </author><guid>http://localhost:1313/rust%E5%AF%BC%E5%87%BAdll/</guid>
+    <description><![CDATA[windows rust 导出 动态库文件]]></description>
+</item><item>
+    <title>rust环境配置</title>
+    <link>http://localhost:1313/rust%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</link>
+    <pubDate>Sat, 01 Feb 2020 10:00:00 &#43;0000</pubDate><author>
+        <name>zys</name>
+    </author><guid>http://localhost:1313/rust%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</guid>
+    <description><![CDATA[rust安装]]></description>
+</item></channel>
+</rss>

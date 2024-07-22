@@ -1,0 +1,36 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Python - 分类 - ZYSCN</title>
+        <link>http://localhost:1313/categories/python/</link>
+        <description>Python - 分类 - ZYSCN</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>zys@hotmail.com (zys)</managingEditor>
+            <webMaster>zys@hotmail.com (zys)</webMaster><lastBuildDate>Wed, 25 May 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/categories/python/" rel="self" type="application/rss+xml" /><item>
+    <title>python封装四个常用PHP函数</title>
+    <link>http://localhost:1313/python%E5%B0%81%E8%A3%85%E5%9B%9B%E4%B8%AAphp%E5%87%BD%E6%95%B0/</link>
+    <pubDate>Wed, 25 May 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>zys</name>
+    </author><guid>http://localhost:1313/python%E5%B0%81%E8%A3%85%E5%9B%9B%E4%B8%AAphp%E5%87%BD%E6%95%B0/</guid>
+    <description><![CDATA[python封装四个常用PHP函数，ksort，implode，md5，base64_encode]]></description>
+</item><item>
+    <title>python线程操作</title>
+    <link>http://localhost:1313/python%E7%BB%88%E6%AD%A2%E8%BF%90%E8%A1%8C%E4%B8%AD%E7%9A%84%E7%BA%BF%E7%A8%8B/</link>
+    <pubDate>Thu, 19 May 2022 00:00:00 &#43;0000</pubDate><author>
+        <name>zys</name>
+    </author><guid>http://localhost:1313/python%E7%BB%88%E6%AD%A2%E8%BF%90%E8%A1%8C%E4%B8%AD%E7%9A%84%E7%BA%BF%E7%A8%8B/</guid>
+    <description><![CDATA[python多线程程序运行]]></description>
+</item><item>
+    <title>python调用libxl插件</title>
+    <link>http://localhost:1313/python%E8%B0%83%E7%94%A8libxl%E6%8F%92%E4%BB%B6/</link>
+    <pubDate>Tue, 28 Sep 2021 12:00:00 &#43;0000</pubDate><author>
+        <name>zys</name>
+    </author><guid>http://localhost:1313/python%E8%B0%83%E7%94%A8libxl%E6%8F%92%E4%BB%B6/</guid>
+    <description><![CDATA[python调用libxl插件无需安装excel软件处理excel表格]]></description>
+</item><item>
+    <title>python调用大漠插件</title>
+    <link>http://localhost:1313/python%E8%B0%83%E7%94%A8%E5%A4%A7%E6%BC%A0%E6%8F%92%E4%BB%B6/</link>
+    <pubDate>Mon, 03 Feb 2020 12:00:00 &#43;0000</pubDate><author>
+        <name>zys</name>
+    </author><guid>http://localhost:1313/python%E8%B0%83%E7%94%A8%E5%A4%A7%E6%BC%A0%E6%8F%92%E4%BB%B6/</guid>
+    <description><![CDATA[python 无注册 调用破解大漠dll]]></description>
+</item></channel>
+</rss>
