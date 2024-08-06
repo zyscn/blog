@@ -497,7 +497,7 @@ theme = "DoIt"
       #  Twikoo 评论系统设置
       [params.page.comment.twikoo]
         enable = true
-        envId = "https://twikoo.pondernote.com/"
+        envId = "https://twikoo.beancake.cn/"
         region = ""
         path = ""
         cloudbase = false # boolean : true / false. # 是否部署在腾讯云 CloudBase
