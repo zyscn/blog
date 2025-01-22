@@ -703,7 +703,7 @@ theme = "DoIt"
 # 作者配置
 [params.author]
   name = "zys"
-  email = "zys@hotmail.com"
+  email = "zyscn@hotmail.com"
   link = ""
   avatar = ""
   gravatarEmail = ""
